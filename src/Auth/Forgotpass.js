@@ -45,6 +45,10 @@ const navigate = useNavigate()
         <button className="resetpassbtn">RESET MY PASSWORD</button>
       </div>
       <div className="go_back">Go back to <span style={{color:"#e9716f"}} onClick={()=> {navigate("/login")}}>Sign In</span></div>
+      <div style={{marginTop: "50px"}}>
+          Copyright © {new Date().getFullYear()} Ankit Jain. All rights
+          reserved. | Powered by @ankit
+        </div>{" "}
     </div>
   );
 }
