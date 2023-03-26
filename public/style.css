@@ -342,3 +342,47 @@ padding-top: 20px;
 color: #eeeeee;
 font-size:medium;
 }
+
+.resetpassbtn {
+    outline-width: 0;
+        padding: 20px;
+        width: 300px;
+        height: 66px;
+        border-radius: 100px;
+        border: 1px solid #89969f;
+        background-color: lightcoral;
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: .2;
+        letter-spacing: 1.2;
+        color: white;
+        margin-right: 30px;
+        font-family: "Oswald",sans-serif;
+}
+
+.forgotpass-container {
+    text-align: left;
+    font-size: x-large;
+width: 390px;
+}
+
+.forgotpass-inter-container{
+    font-size: large;
+}
+
+.go_back{
+    font-family: "Roboto",sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    color: #000;
+    padding-top: 44px;
+    padding-bottom: 30px;
+    text-align: center;
+
+}

@@ -107,7 +107,7 @@ export default function Login() {
         <span>{emassage.emailcheck}</span>
         <span>{emassage.paslength}</span>
         <span>{emassage.passcheck}</span>
-        <div className="Forgotpass">Forgot your password?</div>
+        <div className="Forgotpass" onClick={()=> {navigate("/forgotpass")}}>Forgot your password?</div>
         <div className="having_trouble">Having trouble logging in?</div>
         <div className="check"><span className="word_highlight">Please check</span> if your email has been registered on the portal.</div>
         <div style={{marginTop: "50px"}}>
