@@ -1,4 +1,5 @@
 import React from "react";
+import { BiArrowBack } from 'react-icons/bi'
 
 export default function Lastsection() {
   return (
@@ -21,7 +22,7 @@ export default function Lastsection() {
         provider’s perspective, click here.
       </div>
       <div className="last-section-div">
-        <button className="last-section-botton"> <i className="fa-solid fa-arrow-left"></i> Go Back </button>
+        <button className="last-section-botton" onClick={()=>History.back()}> <BiArrowBack/> Go Back </button>
       </div>
     </div>
   );
