@@ -62,7 +62,7 @@ export default function Login() {
     //  if (regexCheck() == true) {
     //   navigate('/')
     //  }
-    navigate("/");
+    navigate("/usersinfo");
   };
 
   return (
