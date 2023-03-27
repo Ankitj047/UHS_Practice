@@ -14,7 +14,6 @@ const initialstate = {
   phone: "",
   isaccept: false,
   diseasedes: "",
-  newfieldcheckgit:""
 };
 
 export default function UserUpdate() {
