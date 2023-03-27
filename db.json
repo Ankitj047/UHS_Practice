@@ -1,11 +1,4 @@
 {
-  "mobile": [
-    {
-      "id": "1",
-      "name": "samsung",
-      "Image": ""
-    }
-  ],
   "register": [
     {
       "name": "abc.abc@gmai.com",
