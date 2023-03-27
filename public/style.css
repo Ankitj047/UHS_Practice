@@ -409,5 +409,16 @@ width: 390px;
         height: 100px;
         background-color: #34ab8f;
         padding: 40px 0px 10px 0px;
-        border-radius: 40px;
+        border-radius: 0px;
+    }
+
+    .common_component-container{
+        margin: 0px 0px 0px 0px;
+        background-color: #e9716f;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: x-large;
+        padding: 50px;
     }

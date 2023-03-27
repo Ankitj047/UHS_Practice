@@ -11,6 +11,7 @@ const Childdiv = {
   }
 
   return (
+    // https://www.geeksforgeeks.org/how-to-create-a-custom-progress-bar-component-in-react-js/
     <div className='progreebar-container'>
     <div className="progrssbar-parentdiv">
       <div style={Childdiv}>
