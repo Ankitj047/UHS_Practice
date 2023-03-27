@@ -11,10 +11,12 @@ const Childdiv = {
   }
 
   return (
+    <div className='progreebar-container'>
     <div className="progrssbar-parentdiv">
       <div style={Childdiv}>
         <span className="progresstext">{`${progress}%`}</span>
       </div>
+    </div>
     </div>
   )
 }
