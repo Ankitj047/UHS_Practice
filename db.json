@@ -1,0 +1,21 @@
+{
+  "mobile": [
+    {
+      "id": "1",
+      "name": "samsung",
+      "Image": ""
+    }
+  ],
+  "register": [
+    {
+      "name": "abc.abc@gmai.com",
+      "pass": "Abc@1234",
+      "id": 1
+    },
+    {
+      "name": "abc.xuy@gmai.com",
+      "pass": "Abc@1234",
+      "id": 2
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import Login from './Auth/Login';
 import Registration from './Auth/Registration';
 import Home from './Home/Home';
 import Ourmission from './Home/NavbarHeaderPages/Ourmission';
+import UserUpdate from './MemberLogin/UserUpdate';
 
 
 
@@ -16,7 +17,8 @@ export default function RoutesFile() {
         <Route path={"/login"} element={<Login/>}></Route>
         <Route path={"/ourmission"} element={<Ourmission/>}></Route>
         <Route path={'/forgotpass'} element={<Forgotpass/>}></Route>
-        <Route path={'/regiser'} element={<Registration/>}></Route>
+        <Route path={"/registration"} element={<Registration/>}></Route>
+        <Route path={"/usersinfo"} element={<UserUpdate/>}></Route>
     </Routes>
     </BrowserRouter>
   )

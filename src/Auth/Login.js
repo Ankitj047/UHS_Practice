@@ -62,7 +62,7 @@ export default function Login() {
     //  if (regexCheck() == true) {
     //   navigate('/')
     //  }
-    navigate("/");
+    navigate("/usersinfo");
   };
 
   return (
@@ -109,7 +109,7 @@ export default function Login() {
         <span>{emassage.passcheck}</span>
         <div className="Forgotpass" onClick={()=> {navigate("/forgotpass")}}>Forgot your password?</div>
         <div className="having_trouble">Having trouble logging in?</div>
-        <div className="check"><span className="word_highlight" onClick={()=>navigate("/regiser")}>Please check</span> if your email has been registered on the portal.</div>
+        <div className="check"><span className="word_highlight" onClick={()=>navigate("/registration")} >Please check</span> if your email has been registered on the portal.</div>
         <div style={{marginTop: "50px"}}>
           Copyright © {new Date().getFullYear()} Ankit Jain. All rights
           reserved. | Powered by @ankit
