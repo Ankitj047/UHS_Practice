@@ -8,7 +8,7 @@ import Proposal from './Proposal'
 export default function Home() {
   return (
 <div>
-  <div style={{position: 'sticky', top:0, zIndex: 1, paddingTop: "5px"}}>
+  <div style={{position: 'sticky', top:0, zIndex: 1, paddingTop: "5px", backgroundColor:"#FFF"}}>
     <LandingNavbar/>
     <Proposal/>
     </div>
