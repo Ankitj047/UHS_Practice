@@ -20,7 +20,7 @@ export default function RoutesFile() {
         <Route path={'/forgotpass'} element={<Forgotpass/>}></Route>
         <Route path={"/registration"} element={<Registration/>}></Route>
         <Route path={"/usersinfo"} element={<UserUpdate/>}></Route>
-        <Route path={"/familyupdate/:username"} element={<FamailUpdate/>}></Route>
+        <Route path={"/familyupdate"} element={<FamailUpdate/>}></Route>
     </Routes>
     </BrowserRouter>
   )

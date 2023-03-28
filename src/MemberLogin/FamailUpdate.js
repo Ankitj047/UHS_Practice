@@ -3,11 +3,11 @@ import Progressbar from './Progressbar';
 import { useParams } from "react-router-dom";
 
 export default function FamailUpdate() {
-  const {username} = useParams();
+  const {data} = useParams();
 
   useEffect(() => {
     setTimeout(() => {
-      console.log(username,"params data");
+      console.log(data,"params data");
     }, 1000);
     
   }, []);
@@ -15,6 +15,6 @@ export default function FamailUpdate() {
     <>
     <div>FamailUpdate</div>
     <Progressbar bgcolor="orange" progress='30'  height={30} />
-    <div>{username}</div>
+    <div>{data}</div>
     </>)
 }
