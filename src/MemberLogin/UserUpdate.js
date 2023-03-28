@@ -30,7 +30,7 @@ export default function UserUpdate() {
     if (regexcheck() == true ){
     const {data} = await userudpateapiurl(formdata).then((item)=>item).catch((err)=>console.log(err))
     dispatch(userSliceAction.loginUserdata(data))
-    navigate(`/familyupdate?${createSearchParams(formdata)}`)}
+    navigate(`/familyupdate`)}
 
     else{
       setErrormessage("Please Accept T&C")

@@ -439,3 +439,28 @@ margin-top: 20px !important;
     .userupdate-container textarea{
         width: 100%;
     }
+
+    .family-container{
+        background-color: blue;
+        max-width: 100%;
+        max-height: max-content;
+        padding: 10px;
+    }
+
+    .spouseheader{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .family-container-inside{
+        padding: 10px 0px 10px 0px;
+        margin-top: 10px;
+    }
+
+    .family-container-inside input{
+        width: 100%;
+        border-color: #000;
+    }
