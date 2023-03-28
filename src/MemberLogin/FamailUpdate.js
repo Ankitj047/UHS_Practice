@@ -32,10 +32,10 @@ const handlesubmit = () => {
                   <input placeholder="Plesse Enter Spouse Age" />
                 </div>
               </div>
+        <button type="submit">Submit</button>
             </div>
           </div>}
         </div>
-        <button type="submit">Submit</button>
       </form>
     </>
   );
