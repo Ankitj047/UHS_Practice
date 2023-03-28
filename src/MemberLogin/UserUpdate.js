@@ -5,6 +5,7 @@ import { getregisterApiurl } from "../APICALL";
 import Progressbar from "./Progressbar";
 import { useNavigate } from "react-router";
 import Commoncomponent from "./Commoncomponent";
+import { userudpateapiurl } from "../APICALL";
 
 const initialstate = {
   fname: "",
@@ -19,21 +20,32 @@ const initialstate = {
 export default function UserUpdate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [state, setState] = useState(initialstate)
+  const [formdata, setFormdata] = useState(initialstate)
+  const [errormessage, setErrormessage] = useState("")
   const userdata = useSelector((state) => state.users.user);
 
-  const getdata = async () => {
-    const { data } = await getregisterApiurl
-      .then((item) => item)
-      .catch((err) => console.log(err));
-    console.log(data);
-    dispatch(userSliceAction(data));
+  const handlsubmit = async (e) => {
+    e.preventDefault();
+    if (regexcheck() == true ){
+    const {data} = await userudpateapiurl(formdata).then((item)=>item).catch((err)=>console.log(err))
+    dispatch(userSliceAction.loginUserdata(data))
+
+    navigate(`/familyupdate/${formdata.fname}`)}
+
+    else{
+      setErrormessage("Please Accept T&C")
+    }
   };
 
-  const handlsubmit = () => {
-    console.log("yes I am called");
-    navigate("/familyupdate");
-  };
+  const regexcheck = () => {
+  if (formdata.isaccept == false){
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
 
   return (
     <>
@@ -43,29 +55,30 @@ export default function UserUpdate() {
       <div>
         <Progressbar progress="0" />
       </div>
-      <form onClick={() => handlsubmit()}>
+      <form onSubmit={handlsubmit}>
+        <div>{errormessage}</div>
         <div className="container userupdate-container">
           <div className="row">
             <div className="col-sm">
-              <input placeholder="Please enter First Name" />
+              <input placeholder="Please enter First Name" value={formdata.fname} onChange={(e)=>setFormdata({...formdata, fname:e.target.value})}/>
             </div>
           </div>
           <div className="row containerrow">
             <div className="col-sm">
-              <input placeholder="Please enter Last Name" />
+              <input placeholder="Please enter Last Name" value={formdata.lname} onChange={(e)=>setFormdata({...formdata, lname:e.target.value})} />
             </div>
           </div>
           <div className="row containerrow">
             <div className="col-sm">
-              <input placeholder="Please enter email" />
+              <input placeholder="Please enter email" value={formdata.email} onChange={(e)=>setFormdata({...formdata,email:e.target.value})}/>
             </div>
           </div>
           <div className="row containerrow">
             <div className="col-sm">
-              <input placeholder="Please enter Phone number" />
+              <input placeholder="Please enter Phone number" value={formdata.phone} onChange={(e)=>setFormdata({...formdata,phone:e.target.value})}/>
             </div>
             <div className="col-sm">
-              <input placeholder="Please enter age" />
+              <input placeholder="Please enter age" value={formdata.age} onChange={(e)=>setFormdata({...formdata,age:e.target.value})} />
             </div>
           </div>
           <div className="row containerrow">
@@ -75,19 +88,21 @@ export default function UserUpdate() {
                 rows="4"
                 cols="50"
                 placeholder="Please Describe Disease if Any"
+                value={formdata.diseasedes}
+                onChange={(e)=>setFormdata({...formdata,diseasedes:e.target.value})}
               />
             </div>
           </div>
           <div className="row containerrow">
             <div className="col-sm">
-              <input type="checkbox" placeholder="Please enter email" />
+              <input type="checkbox" placeholder="Please enter email" checked={formdata.isaccept} onChange={()=>{setFormdata({...formdata,isaccept:!formdata.isaccept})}}/>
             </div>
             <div className="col-sm">
               <label>I have read and Accept T&C</label>
             </div>
           </div>
         </div>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </>
   );

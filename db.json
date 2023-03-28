@@ -13,9 +13,54 @@
     {
       "name": "ghy.yui@gmail.com",
       "pass": "147852399",
-      "name": "ase.jkl@gmail.com",
-      "pass": "asd@123",
       "id": 3
+    },
+    {
+      "name": "dix@it.com",
+      "pass": "qwe@123",
+      "id": 4
+    }
+  ],
+  "login": [
+    {
+      "fname": "xyz",
+      "lname": "abc",
+      "age": "28",
+      "email": "xyz@abc.com",
+      "phone": "1234567890",
+      "isaccept": true,
+      "diseasedes": "qwertyuiop[[[[",
+      "id": 1
+    },
+    {
+      "fname": "dev",
+      "lname": "SHUKLA",
+      "age": "15",
+      "email": "dev@shukla.com",
+      "phone": "125478930",
+      "isaccept": true,
+      "diseasedes": "adgfhjkl;",
+      "id": 2
+    },
+    {
+      "fname": "asfgfhgdfhh",
+      "lname": "",
+      "age": "",
+      "email": "",
+      "phone": "",
+      "isaccept": true,
+      "diseasedes": "",
+      "id": 3
+    },
+    {
+      "fname": "fghjkl;''",
+      "lname": "",
+      "age": "",
+      "email": "",
+      "phone": "",
+      "isaccept": true,
+      "diseasedes": "",
+      "id": 4
     }
   ]
 }

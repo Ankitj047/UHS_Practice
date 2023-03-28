@@ -10,7 +10,9 @@ const userSlice = createSlice({
         registerUsers(state, action){
             state.user=action.payload
         },
-        loginUser(state,action){},
+        loginUserdata(state,action){
+            state.user=action.payload
+        },
         getregisterdata(state,action){
             state.user=action.payload
         }
