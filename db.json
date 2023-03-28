@@ -1,11 +1,4 @@
 {
-  "mobile": [
-    {
-      "id": "1",
-      "name": "samsung",
-      "Image": ""
-    }
-  ],
   "register": [
     {
       "name": "abc.abc@gmai.com",
@@ -20,6 +13,8 @@
     {
       "name": "ghy.yui@gmail.com",
       "pass": "147852399",
+      "name": "ase.jkl@gmail.com",
+      "pass": "asd@123",
       "id": 3
     }
   ]
