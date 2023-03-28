@@ -6,6 +6,7 @@ import Progressbar from "./Progressbar";
 import { useNavigate } from "react-router";
 import Commoncomponent from "./Commoncomponent";
 import { userudpateapiurl } from "../APICALL";
+import { createSearchParams } from 'react-router-dom';
 
 const initialstate = {
   fname: "",
@@ -29,8 +30,7 @@ export default function UserUpdate() {
     if (regexcheck() == true ){
     const {data} = await userudpateapiurl(formdata).then((item)=>item).catch((err)=>console.log(err))
     dispatch(userSliceAction.loginUserdata(data))
-
-    navigate(`/familyupdate/${formdata.fname}`)}
+    navigate(`/familyupdate??${createSearchParams(formdata)}`)}
 
     else{
       setErrormessage("Please Accept T&C")
