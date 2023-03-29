@@ -38,85 +38,26 @@
   ],
   "userpersonaldata": [
     {
-      "fname": "xyz",
-      "lname": "abc",
-      "age": "28",
-      "email": "xyz@abc.com",
+      "fname": "data1",
+      "lname": "data1",
+      "age": "12",
+      "email": "data1@data1.com",
       "phone": "1234567890",
       "isaccept": true,
-      "diseasedes": "qwertyuiop[[[[",
-      "id": 1
+      "diseasedes": "fghj",
+      "userid": "1",
+      "id": 9
     },
     {
-      "fname": "dev",
-      "lname": "SHUKLA",
-      "age": "15",
-      "email": "dev@shukla.com",
-      "phone": "125478930",
-      "isaccept": true,
-      "diseasedes": "adgfhjkl;",
-      "id": 2
-    },
-    {
-      "fname": "Akshay",
-      "lname": "Bhandara",
-      "age": "30",
-      "email": "akshay@gmail.com",
+      "fname": "testfor2",
+      "lname": "testfor2",
+      "age": "25",
+      "email": "abc.xuy@gmai.com",
       "phone": "1234567890",
       "isaccept": true,
-      "diseasedes": "dfghjkl",
-      "id": 3
-    },
-    {
-      "fname": "shreya",
-      "lname": "Ghoshal",
-      "age": "30",
-      "email": "shreya@gmail.com",
-      "phone": "1234567890",
-      "isaccept": true,
-      "diseasedes": "dsghf",
-      "id": 4,
-      "UserId": 6
-    },
-    {
-      "fname": "",
-      "lname": "",
-      "age": "",
-      "email": "",
-      "phone": "",
-      "isaccept": true,
-      "diseasedes": "",
-      "id": 5
-    },
-    {
-      "fname": "",
-      "lname": "",
-      "age": "",
-      "email": "",
-      "phone": "",
-      "isaccept": true,
-      "diseasedes": "",
-      "id": 6
-    },
-    {
-      "fname": "",
-      "lname": "",
-      "age": "",
-      "email": "",
-      "phone": "",
-      "isaccept": true,
-      "diseasedes": "",
-      "id": 7
-    },
-    {
-      "fname": "Dev",
-      "lname": "shukla",
-      "age": "22",
-      "email": "dev@rt.com",
-      "phone": "1234567890",
-      "isaccept": true,
-      "diseasedes": "",
-      "id": 8
+      "diseasedes": "N/A",
+      "userid": "2",
+      "id": 10
     }
   ],
   "userfamilydata": [

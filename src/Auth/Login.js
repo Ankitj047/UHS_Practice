@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { registerverifyapiurl } from "../APICALL";
 
 const errormessage = {
   emaillength: "",
@@ -14,6 +15,8 @@ export default function Login() {
   const [emailvalue, setEailvalue] = useState();
   const [pass, setPass] = useState();
   const [emassage, setEmessage] = useState(errormessage);
+  const [registerdata, setRegisterdata] = useState([]);
+  const [loginerr, setLoginerr] = useState("");
   const regexCheck = () => {
     const emailregex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 
@@ -58,11 +61,26 @@ export default function Login() {
     setEmessage({ ...emassage, paslength: "", passcheck: "" });
   };
 
+  useEffect(() => {
+    registerverifyapiurl
+      .then((item) => setRegisterdata(item.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   const login = () => {
     //  if (regexCheck() == true) {
     //   navigate('/')
     //  }
-    navigate("/usersinfo");
+    const rdata = registerdata.filter((item) => item.name == emailvalue);
+    if (rdata == 0) {
+      return setLoginerr("please enter correct mail");
+    } else if (rdata[0].pass !== pass) {
+      return setLoginerr("please enter correct pass");
+    } else {
+      const id = rdata[0].id;
+ navigate("/usersinfo");
+      localStorage.setItem("id", id);
+    }
   };
 
   return (
@@ -85,6 +103,7 @@ export default function Login() {
           />
         </div>
         <div className="login_input_container">
+          {loginerr}
           <input
             className="login_input_username"
             type="text"
@@ -107,10 +126,25 @@ export default function Login() {
         <span>{emassage.emailcheck}</span>
         <span>{emassage.paslength}</span>
         <span>{emassage.passcheck}</span>
-        <div className="Forgotpass" onClick={()=> {navigate("/forgotpass")}}>Forgot your password?</div>
+        <div
+          className="Forgotpass"
+          onClick={() => {
+            navigate("/forgotpass");
+          }}
+        >
+          Forgot your password?
+        </div>
         <div className="having_trouble">Having trouble logging in?</div>
-        <div className="check"><span className="word_highlight" onClick={()=>navigate("/registration")} >Please check</span> if your email has been registered on the portal.</div>
-        <div style={{marginTop: "50px"}}>
+        <div className="check">
+          <span
+            className="word_highlight"
+            onClick={() => navigate("/registration")}
+          >
+            Please check
+          </span>{" "}
+          if your email has been registered on the portal.
+        </div>
+        <div style={{ marginTop: "50px" }}>
           Copyright © {new Date().getFullYear()} Ankit Jain. All rights
           reserved. | Powered by @ankit
         </div>{" "}

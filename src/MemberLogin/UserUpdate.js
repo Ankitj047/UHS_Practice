@@ -16,6 +16,7 @@ const initialstate = {
   phone: "",
   isaccept: false,
   diseasedes: "",
+  userid:""
 };
 
 export default function UserUpdate() {
@@ -25,9 +26,10 @@ export default function UserUpdate() {
   const [errormessage, setErrormessage] = useState("")
   const userdata = useSelector((state) => state.users.user);
 
-  const handlsubmit = async (e) => {
+  const handlsubmit = async (e,) => {
     e.preventDefault();
     if (regexcheck() == true ){
+      formdata.userid = localStorage.getItem("id")
     const {data} = await userudpateapiurl(formdata).then((item)=>item).catch((err)=>console.log(err))
     dispatch(userSliceAction.loginUserdata(data))
     navigate(`/familyupdate`)}

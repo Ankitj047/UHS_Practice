@@ -9,7 +9,7 @@ export default function Footer() {
           reserved.
         </div>
         <div className="col sm">
-          <div><i class="fa fa-linkedin" aria-hidden="true"></i>
+          <div><i className="fa fa-linkedin" aria-hidden="true"></i>
 </div>
         </div>
       </div>
