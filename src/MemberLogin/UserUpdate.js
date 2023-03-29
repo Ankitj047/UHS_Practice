@@ -32,7 +32,7 @@ export default function UserUpdate() {
     dispatch(userSliceAction.loginUserdata(data))
     navigate(`/familyupdate`)}
 
-    else{
+    else{ 
       setErrormessage("Please Accept T&C")
     }
   };
