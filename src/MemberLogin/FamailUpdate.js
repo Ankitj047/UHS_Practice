@@ -2,16 +2,23 @@ import React, { useEffect, useState } from "react";
 import Progressbar from "./Progressbar";
 import { useParams } from "react-router-dom";
 import Commoncomponent from "./Commoncomponent";
+import { useDispatch, useSelector } from "react-redux";
+import { userfamilydataurl } from "../APICALL";
+import { userSliceAction } from "../store/slices/userSlice";
 
 export default function FamailUpdate() {
-  const [spouseadd, setSpouseadd] = useState(false);
+const dispatch = useDispatch()
+
   const [formValues, setFormValues] = useState([
     { fname: "", lname: "", age: "" },
   ]);
 
-  const handlesubmit = (e) => {
+  const handlesubmit = async(e) => {
     e.preventDefault();
     console.log(formValues, "formValues");
+    const {data} = userfamilydataurl(formValues).then((item)=> item).catch((err)=> console.log(err))
+
+dispatch(userSliceAction.userfamilydata(data))
   };
 
   const handleChange = (i, e) => {

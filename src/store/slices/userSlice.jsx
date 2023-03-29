@@ -15,6 +15,9 @@ const userSlice = createSlice({
         },
         getregisterdata(state,action){
             state.user=action.payload
+        },
+        userfamilydata(state, action){
+            state.user = action.payload
         }
     }
 })

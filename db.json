@@ -19,6 +19,21 @@
       "name": "dix@it.com",
       "pass": "qwe@123",
       "id": 4
+    },
+    {
+      "name": "akshay@gmail.com",
+      "pass": "ABC@1234",
+      "id": 5
+    },
+    {
+      "name": "shreya@gmail.com",
+      "pass": "asdf@123",
+      "id": 6
+    },
+    {
+      "name": "dev@rt.com",
+      "pass": "dev@rt.com",
+      "id": 7
     }
   ],
   "userpersonaldata": [
@@ -41,6 +56,98 @@
       "isaccept": true,
       "diseasedes": "adgfhjkl;",
       "id": 2
+    },
+    {
+      "fname": "Akshay",
+      "lname": "Bhandara",
+      "age": "30",
+      "email": "akshay@gmail.com",
+      "phone": "1234567890",
+      "isaccept": true,
+      "diseasedes": "dfghjkl",
+      "id": 3
+    },
+    {
+      "fname": "shreya",
+      "lname": "Ghoshal",
+      "age": "30",
+      "email": "shreya@gmail.com",
+      "phone": "1234567890",
+      "isaccept": true,
+      "diseasedes": "dsghf",
+      "id": 4,
+      "UserId": 6
+    },
+    {
+      "fname": "",
+      "lname": "",
+      "age": "",
+      "email": "",
+      "phone": "",
+      "isaccept": true,
+      "diseasedes": "",
+      "id": 5
+    },
+    {
+      "fname": "",
+      "lname": "",
+      "age": "",
+      "email": "",
+      "phone": "",
+      "isaccept": true,
+      "diseasedes": "",
+      "id": 6
+    },
+    {
+      "fname": "",
+      "lname": "",
+      "age": "",
+      "email": "",
+      "phone": "",
+      "isaccept": true,
+      "diseasedes": "",
+      "id": 7
+    },
+    {
+      "fname": "Dev",
+      "lname": "shukla",
+      "age": "22",
+      "email": "dev@rt.com",
+      "phone": "1234567890",
+      "isaccept": true,
+      "diseasedes": "",
+      "id": 8
     }
+  ],
+  "userfamilydata": [
+    [
+      {
+        "fname": "dev",
+        "lname": "dev1",
+        "age": "22"
+      },
+      {
+        "fname": "terst1",
+        "lname": "test2",
+        "age": "14"
+      },
+      {
+        "fname": "test3",
+        "lname": "test4",
+        "age": "15"
+      }
+    ],
+    [
+      {
+        "fname": "spu",
+        "lname": "spu",
+        "age": "20"
+      },
+      {
+        "fname": "chl1",
+        "lname": "ch2",
+        "age": "2"
+      }
+    ]
   ]
 }
