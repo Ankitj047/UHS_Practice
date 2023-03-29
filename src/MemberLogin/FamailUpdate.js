@@ -1,6 +1,3 @@
-//  how to add or remove input field dynamically when user click on button in react.js
-//https://sadam-bapunawar.medium.com/add-and-remove-form-fields-dynamically-using-react-and-react-hooks-3b033c3c0bf5
-
 import React, { useEffect, useState } from "react";
 import Progressbar from "./Progressbar";
 import { useParams } from "react-router-dom";
