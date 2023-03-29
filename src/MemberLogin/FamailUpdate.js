@@ -9,7 +9,7 @@ export default function FamailUpdate() {
   const [spouseadd, setSpouseadd] = useState(false);
 
 const handlesubmit = () => {
-  console.log()
+  console.log("called")
 }
   return (
     <>
