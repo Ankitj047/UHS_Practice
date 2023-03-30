@@ -405,7 +405,7 @@
 
 .common_component-container {
   margin: 0px 0px 0px 0px;
-  background-color: #e9716f;
+  background-color: #e4e5e6;
   height: fit-content;
   display: flex;
   align-items: center;
@@ -450,4 +450,21 @@
 
 .addchlidren{
     display: flex;
+}
+.logout{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background-color: transparent;
+  color:#34ab8f;
+   background-color:#e4e5e6;
+}
+.logout-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.logout-icon div{
+  margin-right: 20px;
 }

@@ -62,7 +62,16 @@
       "isaccept": true,
       "diseasedes": "N/A",
       "userid": "2",
-      "id": 10
+      "id": 10,
+      "familydata": [
+        [
+          {
+            "fname": "dfsd",
+            "lname": "dsfsdf",
+            "age": "sdfsdfs"
+          }
+        ]
+      ]
     },
     {
       "fname": "new",
@@ -73,38 +82,56 @@
       "isaccept": true,
       "diseasedes": "dfghjk",
       "userid": "8",
-      "id": 11
+      "id": 11,
+      "familydata": [
+        [
+          {
+            "fname": "test2",
+            "lname": "test2",
+            "age": "test2"
+          },
+          {
+            "fname": "ch12",
+            "lname": "ch12",
+            "age": "ch12"
+          },
+          {
+            "fname": "ch22",
+            "lname": "ch22",
+            "age": "ch22"
+          }
+        ]
+      ]
+    },
+    {
+      "fname": "check",
+      "lname": "check",
+      "age": "check",
+      "email": "check",
+      "phone": "check",
+      "isaccept": true,
+      "diseasedes": "",
+      "userid": "3",
+      "id": 12,
+      "familydata": [
+        [
+          {
+            "fname": "test2",
+            "lname": "test2",
+            "age": "test2"
+          },
+          {
+            "fname": "ch12",
+            "lname": "ch12",
+            "age": "ch12"
+          },
+          {
+            "fname": "ch22",
+            "lname": "ch22",
+            "age": "ch22"
+          }
+        ]
+      ]
     }
-  ],
-  "userfamilydata": [
-    [
-      {
-        "fname": "dev",
-        "lname": "dev1",
-        "age": "22"
-      },
-      {
-        "fname": "terst1",
-        "lname": "test2",
-        "age": "14"
-      },
-      {
-        "fname": "test3",
-        "lname": "test4",
-        "age": "15"
-      }
-    ],
-    [
-      {
-        "fname": "spu",
-        "lname": "spu",
-        "age": "20"
-      },
-      {
-        "fname": "chl1",
-        "lname": "ch2",
-        "age": "2"
-      }
-    ]
   ]
 }

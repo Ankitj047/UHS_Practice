@@ -9,6 +9,7 @@ import { userfamilydataurl } from "../APICALL";
 import { userSliceAction } from "../store/slices/userSlice";
 
 export default function FamailUpdate() {
+  
   const dispatch = useDispatch();
 
   const [formValues, setFormValues] = useState([
@@ -18,10 +19,10 @@ export default function FamailUpdate() {
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log(formValues, "formValues");
-    const { data } = userfamilydataurl(formValues)
+    const userid = 2
+    const { data } = userfamilydataurl(userid, {familydata: [formValues]})
       .then((item) => item)
       .catch((err) => console.log(err));
-
     dispatch(userSliceAction.userfamilydata(data));
   };
 
