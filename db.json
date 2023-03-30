@@ -34,6 +34,11 @@
       "name": "dev@rt.com",
       "pass": "dev@rt.com",
       "id": 7
+    },
+    {
+      "name": "new.new@gmail.com",
+      "pass": "12345",
+      "id": 8
     }
   ],
   "userpersonaldata": [
@@ -58,6 +63,17 @@
       "diseasedes": "N/A",
       "userid": "2",
       "id": 10
+    },
+    {
+      "fname": "new",
+      "lname": "test",
+      "age": "25",
+      "email": "new.new@gmail.com",
+      "phone": "1234567890",
+      "isaccept": true,
+      "diseasedes": "dfghjk",
+      "userid": "8",
+      "id": 11
     }
   ],
   "userfamilydata": [
