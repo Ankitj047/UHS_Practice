@@ -102,36 +102,6 @@
           }
         ]
       ]
-    },
-    {
-      "fname": "check",
-      "lname": "check",
-      "age": "check",
-      "email": "check",
-      "phone": "check",
-      "isaccept": true,
-      "diseasedes": "",
-      "userid": "3",
-      "id": 12,
-      "familydata": [
-        [
-          {
-            "fname": "test2",
-            "lname": "test2",
-            "age": "test2"
-          },
-          {
-            "fname": "ch12",
-            "lname": "ch12",
-            "age": "ch12"
-          },
-          {
-            "fname": "ch22",
-            "lname": "ch22",
-            "age": "ch22"
-          }
-        ]
-      ]
     }
   ]
 }
