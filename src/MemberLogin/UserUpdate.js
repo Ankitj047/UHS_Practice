@@ -28,16 +28,17 @@ export default function UserUpdate() {
   const [errormessage, setErrormessage] = useState("");
   const userdata = useSelector((state) => state.users.user);
   const [getuserdata, setGetuserdata] = useState("");
-
+const [id, setid] = useState()
   useEffect(() => {
     getuserdataurl
       .then((data) => setGetuserdata(data.data.filter((item) => item.userid == 1)))
       .catch((err) => console.log(err));
 
       if (getuserdata.length >0){
-        setFormdata(getuserdata[0])
+        setFormdata(getuserdata[0]);
+        setid(getuserdata[0].id)
       }
-  }, [getuserdata]);
+  }, []);
 
   console.log(getuserdata, "setGetuserdata");
 
@@ -45,7 +46,7 @@ export default function UserUpdate() {
     e.preventDefault();
     if (regexcheck() == true) {
       formdata.userid = localStorage.getItem("id");
-      const { data } = await userudpateapiurl(formdata)
+      const { data } = await userudpateapiurl(id,formdata)
         .then((item) => item)
         .catch((err) => console.log(err));
       dispatch(userSliceAction.loginUserdata(data));
