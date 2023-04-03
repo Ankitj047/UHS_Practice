@@ -30,14 +30,22 @@ export default function UserUpdate() {
   const [getuserdata, setGetuserdata] = useState("");
 const [id, setid] = useState()
   useEffect(() => {
-    getuserdataurl
-      .then((data) => setGetuserdata(data.data.filter((item) => item.userid == 1)))
-      .catch((err) => console.log(err));
 
-      if (getuserdata.length >0){
-        setFormdata(getuserdata[0]);
-        setid(getuserdata[0].id)
+    getuserdataurl
+      .then((data) =>{
+
+        let ans=data.data.filter((item) => item.userid == 1)
+        setGetuserdata(ans)
+
+        if (ans.length >0){
+          setFormdata(ans[0]);
+          setid(ans[0].id)
+        }
       }
+      )
+      .catch((err) => console.log(err));
+  
+    
   }, []);
 
   console.log(getuserdata, "setGetuserdata");
