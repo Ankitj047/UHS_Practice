@@ -9,6 +9,7 @@ import { userudpateapiurl } from "../APICALL";
 import { createSearchParams } from "react-router-dom";
 import { getuserdataurl } from "../APICALL";
 
+
 const initialstate = {
   fname: "",
   lname: "",
@@ -28,33 +29,32 @@ export default function UserUpdate() {
   const [errormessage, setErrormessage] = useState("");
   const userdata = useSelector((state) => state.users.user);
   const [getuserdata, setGetuserdata] = useState("");
-const [id, setid] = useState()
-  useEffect(() => {
+  const [id, setid] = useState();
 
-    getuserdataurl
-      .then((data) =>{
+  const registerUser=useSelector((state)=> state.users.registeruser);
 
-        let ans=data.data.filter((item) => item.userid == 1)
-        setGetuserdata(ans)
-
-        if (ans.length >0){
-          setFormdata(ans[0]);
-          setid(ans[0].id)
-        }
-      }
-      )
-      .catch((err) => console.log(err));
+  console.log(registerUser);
   
-    
-  }, []);
+  useEffect(() => {
+    getuserdataurl
+      .then((data) => {
+        let ans = data.data.filter((item) => item.userid == userid);
+        setGetuserdata(ans);
 
+        if (ans.length > 0) {
+          setFormdata(ans[0]);
+          setid(ans[0].id);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
   console.log(getuserdata, "setGetuserdata");
 
   const handlsubmit = async (e) => {
     e.preventDefault();
     if (regexcheck() == true) {
       formdata.userid = localStorage.getItem("id");
-      const { data } = await userudpateapiurl(id,formdata)
+      const { data } = await userudpateapiurl(id, formdata)
         .then((item) => item)
         .catch((err) => console.log(err));
       dispatch(userSliceAction.loginUserdata(data));

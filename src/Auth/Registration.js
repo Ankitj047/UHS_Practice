@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
 import { registeruserapiurl } from '../APICALL';
 import { useDispatch } from 'react-redux';
 import { userSliceAction } from '../store/slices/userSlice';
 import { Link } from 'react-router-dom';
+import { registergetdata } from '../APICALL/APIcalls';
 
 const errormessage = {
   emaillength: "",
@@ -37,14 +38,10 @@ export default function Registration() {
     pass: pass
   }
 
-const register = async() => {
-
-  const {data} = await registeruserapiurl(formdata).then((item)=>item).catch((err)=>console.log(err))
-
-  dispatch(userSliceAction.registerUsers(data))
-
-  navigate("/usersinfo")
+const register = () => {
+  dispatch(registergetdata(formdata, navigate, dispatch));
 }
+
   return (
      <>
       <div className="loginform_containernew">
@@ -56,13 +53,13 @@ const register = async() => {
             alt="login"
             className="login_main_image"
           />
-          <img
+          <a href='/login'><img
             src="Images/Logo.png"
             width="250px"
             height="100px"
             alt="log"
             className="login_uhs_logo"
-          />
+          /></a>
         </div>
         <div className="login_input_container">
           <input
