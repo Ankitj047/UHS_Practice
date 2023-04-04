@@ -32,8 +32,6 @@ export default function UserUpdate() {
   const [id, setid] = useState();
 
   const registerUser=useSelector((state)=> state.users.registeruser);
-
-  console.log(registerUser);
   
   useEffect(() => {
     getuserdataurl
