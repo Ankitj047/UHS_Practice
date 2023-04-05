@@ -8,7 +8,7 @@ import Commoncomponent from "./Commoncomponent";
 import { userudpateapiurl } from "../APICALL";
 import { createSearchParams } from "react-router-dom";
 import { getuserdataurl } from "../APICALL";
-
+import { postSliceAction } from "../store/slices/postslice";
 
 const initialstate = {
   fname: "",
@@ -31,10 +31,9 @@ export default function UserUpdate() {
   const [getuserdata, setGetuserdata] = useState("");
   const [id, setid] = useState();
 
-  const registerUser=useSelector((state)=> state.users.registeruser);
+  const registerUser=useSelector((state)=> state.posts.registeruser);
+  console.log(registerUser,"registerUserloginpage")
 
-  console.log(registerUser);
-  
   useEffect(() => {
     getuserdataurl
       .then((data) => {
@@ -48,7 +47,7 @@ export default function UserUpdate() {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(getuserdata, "setGetuserdata");
+  console.log(getuserdata, "Getuserdata");
 
   const handlsubmit = async (e) => {
     e.preventDefault();
