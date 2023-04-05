@@ -47,7 +47,7 @@ export default function UserUpdate() {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(getuserdata, "setGetuserdata");
+  console.log(getuserdata, "Getuserdata");
 
   const handlsubmit = async (e) => {
     e.preventDefault();
