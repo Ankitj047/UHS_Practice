@@ -9,6 +9,7 @@ import { userudpateapiurl } from "../APICALL";
 import { createSearchParams } from "react-router-dom";
 import { getuserdataurl } from "../APICALL";
 import { postSliceAction } from "../store/slices/postslice";
+import {adduserdata} from "../APICALL/APIcalls"
 
 const initialstate = {
   fname: "",
@@ -32,32 +33,29 @@ export default function UserUpdate() {
   const [id, setid] = useState();
 
   const registerUser=useSelector((state)=> state.posts.registeruser);
-  console.log(registerUser,"registerUserloginpage")
 
-  useEffect(() => {
-    getuserdataurl
-      .then((data) => {
-        let ans = data.data.filter((item) => item.userid == userid);
-        setGetuserdata(ans);
+  //if same id user was there auto udapte the data 
 
-        if (ans.length > 0) {
-          setFormdata(ans[0]);
-          setid(ans[0].id);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  console.log(getuserdata, "Getuserdata");
+  // useEffect(() => {
+  //   getuserdataurl
+  //     .then((data) => {
+  //       let ans = data.data.filter((item) => item.userid == userid);
+  //       setGetuserdata(ans);
+
+  //       if (ans.length > 0) {
+  //         setFormdata(ans[0]);
+  //         setid(ans[0].id);
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
 
   const handlsubmit = async (e) => {
     e.preventDefault();
     if (regexcheck() == true) {
       formdata.userid = localStorage.getItem("id");
-      const { data } = await userudpateapiurl(id, formdata)
-        .then((item) => item)
-        .catch((err) => console.log(err));
-      dispatch(userSliceAction.loginUserdata(data));
-      navigate(`/familyupdate`);
+      adduserdata(formdata, dispatch,navigate)
     } else {
       setErrormessage("Please Accept T&C");
     }

@@ -13,6 +13,5 @@ reducers:{
 }
 })
 
-console.log(postSlice.actions)
 export default postSlice.reducer
 export const postSliceAction = postSlice.actions
