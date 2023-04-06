@@ -35,6 +35,6 @@ export const adduserdata = async (formdata, dispatch,navigate) => {
     dispatch(userSliceAction.loginUserdata(data));
       navigate(`/familyupdate`);    
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
 } 
