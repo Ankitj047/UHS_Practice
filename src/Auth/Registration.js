@@ -34,7 +34,7 @@ export default function Registration() {
 
 
   const formdata = {
-    name: emailvalue,
+    email: emailvalue,
     pass: pass
     }
 
