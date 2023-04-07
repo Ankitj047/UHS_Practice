@@ -39,7 +39,7 @@ export default function Registration() {
     }
 
 const register = () => {
-  dispatch(registergetdata(formdata, navigate, dispatch));
+  registergetdata(formdata, navigate, dispatch)
 }
 
   return (

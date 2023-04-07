@@ -3,38 +3,37 @@ import { useDispatch } from "react-redux";
 import { userSliceAction } from "../store/slices/userSlice";
 import { postSliceAction } from "../store/slices/postslice";
 
-
-const baseUrl = process.env.REACT_APP_BAESURL
-
+const baseUrl = process.env.REACT_APP_BAESURL;
 
 export const registergetdata = async (formdata, navigate, dispatch) => {
   try {
     const { data } = await axios.post(`${baseUrl}/regissteruser`, formdata);
-    navigate("/usersinfo")
-    dispatch(postSliceAction.registerusers(data))
-    console.log(data,"calldata");
+    navigate("/usersinfo");
+    dispatch(postSliceAction.registerusers(data));
+    console.log(data, "calldata");
   } catch (err) {
     console.error(err);
   }
 };
 
-export const getregisterdata = async(dispatch, setRegisterdata) => {
+export const loginapi = async (formdata, navigate, dispatch) => {
   try {
-       const {data} = await axios.get(`${baseUrl}/regissteruser`)
-       dispatch(userSliceAction.getregisterdata(data));
-       setRegisterdata(data)
-  } catch (error) {
-    console.log(error)
+    const { data } = await axios.post(`${baseUrl}/login`, formdata);
+    if (data.messaage == "successful") {
+      navigate("/usersinfo");
+      dispatch(postSliceAction.loginauthdata(data))
+    }
+  } catch (err) {
+    console.log(err);
   }
-}
+};
 
-export const adduserdata = async (formdata, dispatch,navigate) => {
-
+export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
-    const {data} = await axios.post(`${baseUrl}/userpersonaldata`,formdata)
+    const { data } = await axios.post(`${baseUrl}/userpersonaldata`, formdata);
     dispatch(userSliceAction.loginUserdata(data));
-      navigate(`/familyupdate`);    
+    navigate(`/familyupdate`);
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-} 
+};

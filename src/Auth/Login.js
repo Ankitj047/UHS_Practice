@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { registerverifyapiurl } from "../APICALL";
 import { useDispatch } from "react-redux";
-import { getregisterdata } from "../APICALL/APIcalls";
+import { loginapi } from "../APICALL/APIcalls";
 
 const errormessage = {
   emaillength: "",
@@ -13,11 +12,10 @@ const errormessage = {
 
 export default function Login() {
   const navigate = useNavigate();
-const dispatch =  useDispatch()
+  const dispatch = useDispatch();
   const [emailvalue, setEailvalue] = useState();
   const [pass, setPass] = useState();
   const [emassage, setEmessage] = useState(errormessage);
-  const [registerdata, setRegisterdata] = useState([]);
   const [loginerr, setLoginerr] = useState("");
   const regexCheck = () => {
     const emailregex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
@@ -63,24 +61,9 @@ const dispatch =  useDispatch()
     setEmessage({ ...emassage, paslength: "", passcheck: "" });
   };
 
-  useEffect(() => {
-    getregisterdata(dispatch, setRegisterdata)
-  }, []);
-
   const login = () => {
-    //  if (regexCheck() == true) {
-    //   navigate('/')
-    //  }
-    const rdata = registerdata.filter((item) => item.name == emailvalue);
-    if (rdata == 0) {
-      return setLoginerr("please enter correct mail");
-    } else if (rdata[0].pass !== pass) {
-      return setLoginerr("please enter correct pass");
-    } else {
-      const id = rdata[0].id;
- navigate("/usersinfo");
-      localStorage.setItem("id", id);
-    }
+    const formdata = { emailvalue, pass };
+    loginapi(formdata, navigate, dispatch);
   };
 
   return (
