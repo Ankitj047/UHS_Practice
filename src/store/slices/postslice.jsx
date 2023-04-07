@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const postSlice = createSlice ({
- name: "users",
+ name: "posts",
  initialState : {
         registeruser:[]
     },
@@ -13,6 +13,5 @@ reducers:{
 }
 })
 
-console.log(postSlice.actions)
 export default postSlice.reducer
 export const postSliceAction = postSlice.actions

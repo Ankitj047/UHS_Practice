@@ -9,7 +9,7 @@ const baseUrl = process.env.REACT_APP_BAESURL
 
 export const registergetdata = async (formdata, navigate, dispatch) => {
   try {
-    const { data } = await axios.post(`${baseUrl}/register`, formdata);
+    const { data } = await axios.post(`${baseUrl}/regissteruser`, formdata);
     navigate("/usersinfo")
     dispatch(postSliceAction.registerusers(data))
     console.log(data,"calldata");
@@ -18,11 +18,23 @@ export const registergetdata = async (formdata, navigate, dispatch) => {
   }
 };
 
-export const getregisterdata = async() => {
+export const getregisterdata = async(dispatch, setRegisterdata) => {
   try {
-    
-    const {data} = await axios.get(`${baseUrl}`)
+       const {data} = await axios.get(`${baseUrl}/regissteruser`)
+       dispatch(userSliceAction.getregisterdata(data));
+       setRegisterdata(data)
   } catch (error) {
     console.log(error)
   }
 }
+
+export const adduserdata = async (formdata, dispatch,navigate) => {
+
+  try {
+    const {data} = await axios.post(`${baseUrl}/userpersonaldata`,formdata)
+    dispatch(userSliceAction.loginUserdata(data));
+      navigate(`/familyupdate`);    
+  } catch (error) {
+    console.log(error)
+  }
+} 

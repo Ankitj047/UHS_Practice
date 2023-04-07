@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_BAESURL
-// const baseUrl = "http://localhost:3000"
+// const baseUrl = process.env.REACT_APP_BAESURL
+const baseUrl = "http://localhost:5000"
 
 export const registerverifyapiurl = axios.get(`${baseUrl}/register`)
 
