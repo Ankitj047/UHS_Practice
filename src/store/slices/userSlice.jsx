@@ -24,7 +24,5 @@ state.user = action.payload
     }
 })
 
-// console.log(userSlice.actions);
-
 export default userSlice.reducer;
 export const userSliceAction= userSlice.actions;

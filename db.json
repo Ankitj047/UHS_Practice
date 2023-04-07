@@ -44,44 +44,6 @@
       "name": "test@common.com",
       "pass": "1234567890",
       "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "name": "lalit@gmail.com",
-      "pass": "lalit@gmail.com",
-      "id": 11
-    },
-    {
-      "name": "lalit12@gmail.com",
-      "pass": "lalit12@gmail.com",
-      "id": 12
-    },
-    {
-      "name": "lalit123@gmail.com",
-      "pass": "lalit123@gmail.com",
-      "id": 13
-    },
-    {
-      "name": "testslicwe.com",
-      "pass": "testslicwe.com",
-      "id": 14
-    },
-    {
-      "name": "p@we.com",
-      "pass": "p@we.com",
-      "id": 15
-    },
-    {
-      "name": "shubham@wer.com",
-      "pass": "shubham@wer.com",
-      "id": 16
-    },
-    {
-      "name": "test145@test145.com",
-      "pass": "test145@test145.com",
-      "id": 17
     }
   ],
   "userpersonaldata": [
@@ -95,26 +57,6 @@
       "diseasedes": "fghj",
       "userid": "1",
       "id": 9
-    },
-    {
-      "fname": "testfor2",
-      "lname": "testfor2",
-      "age": "25",
-      "email": "abc.xuy@gmai.com",
-      "phone": "1234567890",
-      "isaccept": true,
-      "diseasedes": "N/A",
-      "userid": "2",
-      "id": 10,
-      "familydata": [
-        [
-          {
-            "fname": "dfsd",
-            "lname": "dsfsdf",
-            "age": "sdfsdfs"
-          }
-        ]
-      ]
     },
     {
       "fname": "new",
@@ -145,6 +87,17 @@
           }
         ]
       ]
+    },
+    {
+      "fname": "test5apr",
+      "lname": "test5apr",
+      "age": "45",
+      "email": "test5apr@gmail.com",
+      "phone": "1234567890",
+      "isaccept": true,
+      "diseasedes": "",
+      "userid": "4",
+      "id": 12
     }
   ]
 }

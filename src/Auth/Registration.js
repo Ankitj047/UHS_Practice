@@ -36,7 +36,7 @@ export default function Registration() {
   const formdata = {
     name: emailvalue,
     pass: pass
-  }
+    }
 
 const register = () => {
   dispatch(registergetdata(formdata, navigate, dispatch));
