@@ -5,6 +5,7 @@ const postSlice = createSlice({
   initialState: {
     registeruser: [],
     loginauthdata: [],
+    logindata: [],
   },
 
   reducers: {
@@ -14,6 +15,9 @@ const postSlice = createSlice({
     loginauthdata(state, action) {
       state.loginauthdata = action.payload;
     },
+    logindata(state,action){
+      state.logindata = action.payload;
+    }
   },
 });
 
