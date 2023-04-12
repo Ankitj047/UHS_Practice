@@ -3,19 +3,16 @@ import { useDispatch } from "react-redux";
 import { userSliceAction } from "../store/slices/userSlice";
 import { postSliceAction } from "../store/slices/postslice";
 
-const baseUrl = process.env.REACT_APP_BAESURL;
+const baseurl = process.env.REACT_APP_BAESURL;
 
 const API = axios.create({
-  baseURL : baseUrl,
+  baseURL : baseurl,
   headers : {'authorization': localStorage.getItem(("JWTToken") || "")}
 })
 
-// API.interceptors.request.use((req)=>{
-// req.headers.Authorization = localStorage.getItem(("JWTToken") || "")
-// return req;
-// })
 
 export const registergetdata = async (formdata, navigate, dispatch) => {
+  console.log(baseurl)
   try {
     const { data } = await API.post(`regissteruser`, formdata);
     navigate("/login");

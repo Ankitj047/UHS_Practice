@@ -457,7 +457,11 @@
   justify-content: end;
   background-color: transparent;
   color:#34ab8f;
-   background-color:#e4e5e6;
+   background-color:#fff;
+   height: 4.375rem;
+   flex-flow: row nowrap;
+    justify-content: flex-end;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
 }
 .logout-icon {
   width: 20px;
