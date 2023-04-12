@@ -23,7 +23,7 @@ export const registergetdata = async (formdata, navigate, dispatch) => {
   } catch (err) {
     console.error(err);
   }
-}; a
+};
 
 export const loginapi = async (formdata, navigate, dispatch) => {
   try {
