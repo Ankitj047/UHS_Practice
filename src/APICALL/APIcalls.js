@@ -5,6 +5,15 @@ import { postSliceAction } from "../store/slices/postslice";
 
 const baseUrl = process.env.REACT_APP_BAESURL;
 
+const API = axios.create({
+  baseUrl : baseUrl
+})
+
+API.interceptors.request.use((req)=>{
+req.headers.Authorization = localStorage.getItem(("JWTToken") || "")
+return req;
+})
+
 export const registergetdata = async (formdata, navigate, dispatch) => {
   try {
     const { data } = await axios.post(`${baseUrl}/regissteruser`, formdata);
