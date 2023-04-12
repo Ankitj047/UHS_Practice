@@ -10,7 +10,7 @@ import { createSearchParams } from "react-router-dom";
 import { getuserdataurl } from "../APICALL";
 import { postSliceAction } from "../store/slices/postslice";
 import {adduserdata} from "../APICALL/APIcalls"
-import Sidebar from "./Sidebar";
+import Sidebar from "../Home/NavbarHeaderPages/Sidebar";
 
 const initialstate = {
   fname: "",
@@ -72,10 +72,13 @@ export default function UserUpdate() {
 
   return (
     <>
-      <div>
-        {/* <Sidebar/> */}
+      <div className="container-fluid p-0">
+        <div className="row m-0">
+          <div className="col-3">
+        <Sidebar/>
+        </div>
+        <div className="col-9">
         <Commoncomponent />
-      </div>
       <div>
         <Progressbar progress="0" />
       </div>
@@ -167,6 +170,9 @@ export default function UserUpdate() {
         </div>
         <button type="submit">Submit</button>
       </form>
+      </div>
+      </div>
+      </div>
     </>
   );
 }
