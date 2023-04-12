@@ -8,9 +8,8 @@ const baseUrl = process.env.REACT_APP_BAESURL;
 export const registergetdata = async (formdata, navigate, dispatch) => {
   try {
     const { data } = await axios.post(`${baseUrl}/regissteruser`, formdata);
-    navigate("/usersinfo");
+    navigate("/login");
     dispatch(postSliceAction.registerusers(data));
-    console.log(data, "calldata");
   } catch (err) {
     console.error(err);
   }
@@ -22,6 +21,7 @@ export const loginapi = async (formdata, navigate, dispatch) => {
     if (data.messaage == "successful") {
       navigate("/usersinfo");
       dispatch(postSliceAction.loginauthdata(data))
+      localStorage.setItem("JWTToken",data.token)
     }
   } catch (err) {
     console.log(err);

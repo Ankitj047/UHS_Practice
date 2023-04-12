@@ -34,6 +34,7 @@ export default function UserUpdate() {
 
   const registerUser=useSelector((state)=> state.posts.registeruser);
 
+  const token = localStorage.getItem("JWTToken")
   //if same id user was there auto udapte the data 
 
   // useEffect(() => {
@@ -53,6 +54,8 @@ export default function UserUpdate() {
 
   const handlsubmit = async (e) => {
     e.preventDefault();
+   formdata.token = token
+   console.log(formdata,"formdata")
     if (regexcheck() == true) {
       formdata.userid = localStorage.getItem("id");
       adduserdata(formdata, dispatch,navigate)
