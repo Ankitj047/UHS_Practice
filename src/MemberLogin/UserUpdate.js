@@ -10,6 +10,7 @@ import { createSearchParams } from "react-router-dom";
 import { getuserdataurl } from "../APICALL";
 import { postSliceAction } from "../store/slices/postslice";
 import {adduserdata} from "../APICALL/APIcalls"
+import Sidebar from "./Sidebar";
 
 const initialstate = {
   fname: "",
@@ -72,6 +73,7 @@ export default function UserUpdate() {
   return (
     <>
       <div>
+        {/* <Sidebar/> */}
         <Commoncomponent />
       </div>
       <div>

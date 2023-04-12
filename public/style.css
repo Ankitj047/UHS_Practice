@@ -472,3 +472,7 @@
 .logout-icon div{
   margin-right: 20px;
 }
+
+.sidebar {
+  position: absolute;
+}
