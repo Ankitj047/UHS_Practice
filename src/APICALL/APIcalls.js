@@ -4,15 +4,15 @@ import { userSliceAction } from "../store/slices/userSlice";
 import { postSliceAction } from "../store/slices/postslice";
 
 const baseurl = process.env.REACT_APP_BAESURL;
+export const token  = JSON.parse(localStorage.getItem(("authdata") || ""))
 
 const API = axios.create({
   baseURL : baseurl,
-  headers : {'authorization': localStorage.getItem(("JWTToken") || "")}
+  headers : {'authorization': token.token}
 })
 
 
 export const registergetdata = async (formdata, navigate, dispatch) => {
-  console.log(baseurl)
   try {
     const { data } = await API.post(`regissteruser`, formdata);
     navigate("/login");
@@ -28,7 +28,8 @@ export const loginapi = async (formdata, navigate, dispatch) => {
     if (data.messaage == "successful") {
       navigate("/usersinfo");
       dispatch(postSliceAction.loginauthdata(data))
-      localStorage.setItem("JWTToken",data.token)
+      localStorage.setItem("authdata",JSON.stringify(data))
+      console.log(data,"data")
     }
   } catch (err) {
     console.log(err);
@@ -37,10 +38,20 @@ export const loginapi = async (formdata, navigate, dispatch) => {
 
 export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
-    const { data } = await API.post(`userpersonaldata`, formdata);
-    dispatch(userSliceAction.loginUserdata(data));
+    const { data } = await API.patch(`userpersonaldata`, formdata);
+    dispatch(postSliceAction.userdata(data));
     navigate(`/familyupdate`);
   } catch (error) {
     console.log(error);
   }
 };
+
+export const verifyuser = async (id, dispatch) => {
+try {
+  const {data} = await API.get(`/userpersonaldata/${id}`)
+  dispatch(postSliceAction.userdata(data))
+  console.log(data)
+} catch (error) {
+  console.log(error?.messaage)
+}
+}

@@ -14,8 +14,7 @@ export default function Commoncomponent() {
     setIshover(false)
   }
   const logout = () => {
-    localStorage.removeItem("id");
-    localStorage.removeItem("JWTToken");
+    localStorage.removeItem("authdata");
     navigate("/login");
   };
   return (

@@ -9,8 +9,9 @@ import { userudpateapiurl } from "../APICALL";
 import { createSearchParams } from "react-router-dom";
 import { getuserdataurl } from "../APICALL";
 import { postSliceAction } from "../store/slices/postslice";
-import {adduserdata} from "../APICALL/APIcalls"
+import {adduserdata, token, verifyuser} from "../APICALL/APIcalls"
 import Sidebar from "../Home/NavbarHeaderPages/Sidebar";
+
 
 const initialstate = {
   fname: "",
@@ -24,38 +25,33 @@ const initialstate = {
 };
 
 export default function UserUpdate() {
-  const userid = localStorage.getItem("id");
+  const userid = token.id
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formdata, setFormdata] = useState(initialstate);
   const [errormessage, setErrormessage] = useState("");
-  const userdata = useSelector((state) => state.users.user);
-  const [getuserdata, setGetuserdata] = useState("");
-  const [id, setid] = useState();
+  
+  
+  const userdata = useSelector((state) => state.posts.userdata);
+  const usergetdata = userdata;
 
-  const registerUser=useSelector((state)=> state.posts.registeruser);
+  useEffect(()=>{
+    if (Object.keys(usergetdata).length > 0){
+      setFormdata(usergetdata)
+    } 
+  },[usergetdata])
 
-  //if same id user was there auto udapte the data 
-
-  // useEffect(() => {
-  //   getuserdataurl
-  //     .then((data) => {
-  //       let ans = data.data.filter((item) => item.userid == userid);
-  //       setGetuserdata(ans);
-
-  //       if (ans.length > 0) {
-  //         setFormdata(ans[0]);
-  //         setid(ans[0].id);
-  //       }
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
+  useEffect(() => {
+ verifyuser(userid, dispatch, formdata)
+  }, []);
 
 
   const handlsubmit = async (e) => {
+    console.log(formdata,"formdata1")
     e.preventDefault();
     if (regexcheck() == true) {
-      formdata.userid = localStorage.getItem("id");
+      setFormdata({...formdata, userid: userid})
+      console.log(formdata,"formdata2")
       adduserdata(formdata, dispatch,navigate)
     } else {
       setErrormessage("Please Accept T&C");
@@ -73,16 +69,12 @@ export default function UserUpdate() {
   return (
     <>
       <div className="container-fluid p-0">
-        <div className="row m-0">
-          <div className="col-3">
-        <Sidebar/>
-        </div>
-        <div className="col-9">
+        <div>
         <Commoncomponent />
       <div>
         <Progressbar progress="0" />
       </div>
-      <form onSubmit={handlsubmit}>
+      <form onSubmit={handlsubmit} >
         <div>{errormessage}</div>
         <div className="container userupdate-container">
           <div className="row">
@@ -170,7 +162,6 @@ export default function UserUpdate() {
         </div>
         <button type="submit">Submit</button>
       </form>
-      </div>
       </div>
       </div>
     </>

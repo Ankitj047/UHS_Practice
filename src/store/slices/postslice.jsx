@@ -6,6 +6,7 @@ const postSlice = createSlice({
     registeruser: [],
     loginauthdata: [],
     logindata: [],
+    userdata: []
   },
 
   reducers: {
@@ -17,6 +18,9 @@ const postSlice = createSlice({
     },
     logindata(state,action){
       state.logindata = action.payload;
+    },
+    userdata(state,action){
+      state.userdata = action.payload;
     }
   },
 });
