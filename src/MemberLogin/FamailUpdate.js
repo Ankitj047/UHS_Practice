@@ -6,9 +6,10 @@ import { useParams } from "react-router-dom";
 import Commoncomponent from "./Commoncomponent";
 import { useDispatch, useSelector } from "react-redux";
 import { userSliceAction } from "../store/slices/userSlice";
-import { familydata } from "../APICALL/APIcalls";
+import { familydata, token } from "../APICALL/APIcalls";
+
 export default function FamailUpdate() {
-  
+  const userid = token.id
   const dispatch = useDispatch();
 
   const [formValues, setFormValues] = useState([
@@ -18,12 +19,8 @@ export default function FamailUpdate() {
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log(formValues, "formValues");
-    const userid = 2
-    // const { data } = userfamilydataurl(userid, {familydata: [formValues]})
-    //   .then((item) => item)
-    //   .catch((err) => console.log(err));
-    // dispatch(userSliceAction.userfamilydata(data));
-    familydata(formValues)
+    const formdata = {userid: userid, familydata: formValues}
+    familydata(formdata)
   };
 
   const handleChange = (i, e) => {

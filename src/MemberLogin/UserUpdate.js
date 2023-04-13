@@ -52,7 +52,6 @@ export default function UserUpdate() {
     if (regexcheck() == true) {
       formdata.userid = userregisterid
       setFormdata({...formdata})
-      debugger
       console.log(formdata,"formdata2")
       adduserdata(formdata, dispatch,navigate)
     } else {
