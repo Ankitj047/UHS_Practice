@@ -55,3 +55,13 @@ try {
   console.log(error?.messaage)
 }
 }
+
+export const familydata = async (formdata, dispatch, navigate) => {
+  try {
+    const { data } = await API.patch(`userpersonaldata`, formdata);
+    dispatch(postSliceAction.userdata(data));
+    navigate(`/familyupdate`);
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -25,7 +25,7 @@ const initialstate = {
 };
 
 export default function UserUpdate() {
-  const userid = token.id
+  const userregisterid = token.id
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formdata, setFormdata] = useState(initialstate);
@@ -42,7 +42,7 @@ export default function UserUpdate() {
   },[usergetdata])
 
   useEffect(() => {
- verifyuser(userid, dispatch, formdata)
+ verifyuser(userregisterid, dispatch, formdata)
   }, []);
 
 
@@ -50,7 +50,9 @@ export default function UserUpdate() {
     console.log(formdata,"formdata1")
     e.preventDefault();
     if (regexcheck() == true) {
-      setFormdata({...formdata, userid: userid})
+      formdata.userid = userregisterid
+      setFormdata({...formdata})
+      debugger
       console.log(formdata,"formdata2")
       adduserdata(formdata, dispatch,navigate)
     } else {

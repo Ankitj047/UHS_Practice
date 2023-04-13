@@ -5,9 +5,8 @@ import Progressbar from "./Progressbar";
 import { useParams } from "react-router-dom";
 import Commoncomponent from "./Commoncomponent";
 import { useDispatch, useSelector } from "react-redux";
-import { userfamilydataurl } from "../APICALL";
 import { userSliceAction } from "../store/slices/userSlice";
-
+import { familydata } from "../APICALL/APIcalls";
 export default function FamailUpdate() {
   
   const dispatch = useDispatch();
@@ -20,10 +19,11 @@ export default function FamailUpdate() {
     e.preventDefault();
     console.log(formValues, "formValues");
     const userid = 2
-    const { data } = userfamilydataurl(userid, {familydata: [formValues]})
-      .then((item) => item)
-      .catch((err) => console.log(err));
-    dispatch(userSliceAction.userfamilydata(data));
+    // const { data } = userfamilydataurl(userid, {familydata: [formValues]})
+    //   .then((item) => item)
+    //   .catch((err) => console.log(err));
+    // dispatch(userSliceAction.userfamilydata(data));
+    familydata(formValues)
   };
 
   const handleChange = (i, e) => {
