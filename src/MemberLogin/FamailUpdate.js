@@ -18,7 +18,6 @@ export default function FamailUpdate() {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-    console.log(formValues, "formValues");
     const formdata = {userid: userid, familydata: formValues}
     familydata(formdata)
   };
@@ -26,7 +25,6 @@ export default function FamailUpdate() {
   const handleChange = (i, e) => {
     let newformvalues = [...formValues];
     formValues[i][e.target.name] = e.target.value;
-    console.log(formValues[i]);
     setFormValues(newformvalues);
   };
   const removethisfield = (i) => {
