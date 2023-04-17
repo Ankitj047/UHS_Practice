@@ -10,6 +10,7 @@ import { createSearchParams } from "react-router-dom";
 import { getuserdataurl } from "../APICALL";
 import { postSliceAction } from "../store/slices/postslice";
 import { adduserdata, token, verifyuser } from "../APICALL/APIcalls";
+import FileBase64 from 'react-file-base64';
 import Sidebar from "../Home/NavbarHeaderPages/Sidebar";
 
 const initialstate = {
@@ -20,11 +21,12 @@ const initialstate = {
   phone: "",
   isaccept: false,
   diseasedes: "",
+  profilephoto: "",
   userid: "",
 };
 
 export default function UserUpdate() {
-  const userregisterid = token.id;
+  const userregisterid = token?.id;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formdata, setFormdata] = useState(initialstate);
@@ -47,14 +49,20 @@ export default function UserUpdate() {
     console.log(formdata, "formdata1");
     e.preventDefault();
     if (regexcheck() == true) {
-      formdata.userid = userregisterid;
-      setFormdata({ ...formdata });
+      // formdata.userid = userregisterid;
+      setFormdata({ ...formdata,userid: userregisterid });
       console.log(formdata, "formdata2");
       adduserdata(formdata, dispatch, navigate);
     } else {
       setErrormessage("Please Accept T&C");
     }
   };
+
+  const handleImageChange = (e) => {
+
+    console.log(e.target.files[0])
+    setFormdata({...formdata, profilephoto: e.target.files[0]})
+  }
 
   const regexcheck = () => {
     if (formdata.isaccept == false) {
@@ -68,14 +76,14 @@ export default function UserUpdate() {
     <>
       <div className="container-fluid p-0">
         <div>
-          <Commoncomponent name={usergetdata}/>
+          <Commoncomponent name={usergetdata} />
           <div>
             <Progressbar progress="0" />
           </div>
           <div className="container">
             <div className="row">
               <div className="col-6">
-                <img src="Images/imphealth.jpg" className="userupdarImg"/>
+                <img src="Images/imphealth.jpg" className="userupdarImg" />
               </div>
               <form onSubmit={handlsubmit} className="col-6">
                 <div>{errormessage}</div>
@@ -152,10 +160,35 @@ export default function UserUpdate() {
                     </div>
                   </div>
                   <div className="row containerrow">
+                    {/* <div style={{display: "flex"}}>
+                      <div>Pleaes Upload Your Photo</div>
+                      <div>
+                        <button className="addfiles">Add Photo</button>
+                        <input
+                          id="fileupload"
+                          type="file"
+                          style={{ display: "none", marginLeft: "5px" }}
+                        />
+                      </div>
+                    </div> */}
+                   <div style={{display: "flex"}}>
+                      <div>Pleaes Upload Your Photo</div>
+                      <div>
+                        <input
+                          type="file"
+                          multiple={false}
+                          name="photo"
+                          style={{marginLeft: "5px" }}
+                          defaultValue={formdata.profilephoto}
+                          onChange={(e)=> handleImageChange(e)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row containerrow">
                     <div className="col-sm">
                       <input
                         type="checkbox"
-                        placeholder="Please enter email"
                         checked={formdata.isaccept}
                         onChange={() => {
                           setFormdata({
