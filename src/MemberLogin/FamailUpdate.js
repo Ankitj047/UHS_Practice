@@ -7,6 +7,7 @@ import Commoncomponent from "./Commoncomponent";
 import { useDispatch, useSelector } from "react-redux";
 import { userSliceAction } from "../store/slices/userSlice";
 import { familydata, token } from "../APICALL/APIcalls";
+import { TiDeleteOutline } from "react-icons/ti";
 
 export default function FamailUpdate() {
   const userid = token.id
@@ -43,6 +44,9 @@ export default function FamailUpdate() {
       <Progressbar bgcolor="orange" progress="30" height={30} />
       <form onSubmit={handlesubmit}>
       <div className="family-container">
+          <button type="button" onClick={() => addformField()} className="addchlidren">
+            Add Children
+          </button>
         {formValues.map((item, index) => (
           <div key={index} className="family-container-inside">
             <div className="container">
@@ -54,6 +58,7 @@ export default function FamailUpdate() {
                     placeholder="enter your fname"
                     value={item.fname || ""}
                     onChange={(e) => handleChange(index, e)}
+                    className="form-control"
                   />
                 </div>
                 <div className="col-sm">
@@ -63,6 +68,7 @@ export default function FamailUpdate() {
                     placeholder="enter your lname"
                     value={item.lname || ""}
                     onChange={(e) => handleChange(index, e)}
+                    className="form-control"
                   />
                 </div>
                 <div className="col-sm">
@@ -72,13 +78,14 @@ export default function FamailUpdate() {
                     placeholder="enter your age"
                     value={item.age || ""}
                     onChange={(e) => handleChange(index, e)}
+                    className="form-control"
                   />
                 </div>
 
                 <div className="col-sm">
                   {index ? (
-                    <button onClick={() => removethisfield(index)}>
-                      Rmove
+                    <button onClick={() => removethisfield(index)} style={{backgroundColor: "red"}}>
+                     <TiDeleteOutline className="deleteIcon" />
                     </button>
                   ) : null}
                 </div>
@@ -87,13 +94,10 @@ export default function FamailUpdate() {
           </div>
         ))}
         <div>
-          <button type="button" onClick={() => addformField()} className="addchlidren">
-            Add Children
-          </button>
         </div>
         </div>
-          <button type="submit">Submit</button>
       </form>
+      <button type="submit" className="familysubmit">Submit</button>
     </>
   );
 }
