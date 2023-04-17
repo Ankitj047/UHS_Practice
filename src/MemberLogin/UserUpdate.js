@@ -49,9 +49,9 @@ export default function UserUpdate() {
     console.log(formdata, "formdata1");
     e.preventDefault();
     if (regexcheck() == true) {
-      formdata.userid = userregisterid;
-      setFormdata({...formdata})
-      // setFormdata({ ...formdata,userid: userregisterid });
+      // formdata.userid = userregisterid;
+      // setFormdata({...formdata})
+      setFormdata({ ...formdata,userid: userregisterid });
       console.log(formdata, "formdata2");
       adduserdata(formdata, dispatch, navigate);
     } else {
