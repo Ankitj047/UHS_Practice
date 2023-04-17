@@ -11,7 +11,7 @@ import { familydata, token } from "../APICALL/APIcalls";
 export default function FamailUpdate() {
   const userid = token.id
   const dispatch = useDispatch();
-
+  const userdata = useSelector((state) => state.posts.userdata);
   const [formValues, setFormValues] = useState([
     { fname: "", lname: "", age: "" },
   ]);
@@ -38,7 +38,7 @@ export default function FamailUpdate() {
   return (
     <>
       <div>
-        <Commoncomponent />
+        <Commoncomponent name={userdata}/>
       </div>
       <Progressbar bgcolor="orange" progress="30" height={30} />
       <form onSubmit={handlesubmit}>

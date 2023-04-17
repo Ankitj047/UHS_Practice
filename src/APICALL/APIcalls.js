@@ -8,9 +8,13 @@ export const token  = JSON.parse(localStorage.getItem(("authdata") || ""))
 
 const API = axios.create({
   baseURL : baseurl,
-  headers : {'authorization': token.token}
+  headers : {'authorization': token?.token}
 })
 
+const MultiFileAPI = axios.create({
+  baseURL : baseurl,
+  headers : {'authorization': token.token, "Content-Type" : "multipart/form-data"}
+})
 
 export const registergetdata = async (formdata, navigate, dispatch) => {
   try {
@@ -38,7 +42,7 @@ export const loginapi = async (formdata, navigate, dispatch) => {
 
 export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
-    const { data } = await API.patch(`userpersonaldata`, formdata);
+    const { data } = await MultiFileAPI.patch(`userpersonaldata`, formdata);
     dispatch(postSliceAction.userdata(data));
     navigate(`/familyupdate`);
   } catch (error) {

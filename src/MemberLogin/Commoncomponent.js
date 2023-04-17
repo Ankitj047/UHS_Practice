@@ -3,7 +3,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { useNavigate } from "react-router";
 
 export default function Commoncomponent(props) {
-  const {email} = props.name
+  const {email} = props?.name
   const navigate = useNavigate();
   const [ishover, setIshover] = useState(false);
   const onMouseOver = () => {
