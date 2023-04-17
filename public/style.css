@@ -507,3 +507,9 @@
     margin-bottom: 5px;
     color: rebeccapurple;
 }
+
+.profilephoto{
+  width: 50px;
+  height: 40px;
+  border-radius: 20px;
+}

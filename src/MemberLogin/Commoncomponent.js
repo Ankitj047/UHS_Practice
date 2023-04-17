@@ -3,7 +3,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { useNavigate } from "react-router";
 
 export default function Commoncomponent(props) {
-  const {email} = props?.name
+  const {email,profilephoto} = props?.name
   const navigate = useNavigate();
   const [ishover, setIshover] = useState(false);
   const onMouseOver = () => {
@@ -20,7 +20,10 @@ export default function Commoncomponent(props) {
   return (
     <>
       <div className="logout">
+      <img src={profilephoto} alt="Image" className="profilephoto"/>
         <div className="welcome"> Welcome {email}</div>
+        {/* <div>{profilephoto}</div> */}
+        
         <div className="logoutdiv">
       <div>Logout</div>
         <BiLogOutCircle className="logout-icon" onClick={() => logout()}  onMouseOver={onMouseOver} onMouseOut={onMouseOut}/>
