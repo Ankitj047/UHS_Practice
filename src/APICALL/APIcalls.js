@@ -4,7 +4,7 @@ import { userSliceAction } from "../store/slices/userSlice";
 import { postSliceAction } from "../store/slices/postslice";
 
 const baseurl = process.env.REACT_APP_BAESURL;
-export const token  = JSON.parse(localStorage.getItem(("authdata") || ""))
+export const token  = localStorage.getItem("authdata") ? JSON.parse(localStorage.getItem("authdata")) : ""
 
 const API = axios.create({
   baseURL : baseurl,
