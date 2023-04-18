@@ -21,6 +21,9 @@ const postSlice = createSlice({
     },
     userdata(state,action){
       state.userdata = action.payload;
+    },
+    familydata(state,action){
+state.familydata = action.payload
     }
   },
 });

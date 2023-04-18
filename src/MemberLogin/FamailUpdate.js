@@ -12,7 +12,6 @@ import { TiDeleteOutline } from "react-icons/ti";
 export default function FamailUpdate() {
   const userid = token.id
   const dispatch = useDispatch();
-  const userdata = useSelector((state) => state.posts.userdata);
   const [formValues, setFormValues] = useState([
     { fname: "", lname: "", age: "" },
   ]);
@@ -20,7 +19,7 @@ export default function FamailUpdate() {
   const handlesubmit = async (e) => {
     e.preventDefault();
     const formdata = {userid: userid, familydata: formValues}
-    familydata(formdata)
+    familydata(familydata)
   };
 
   const handleChange = (i, e) => {
@@ -39,7 +38,7 @@ export default function FamailUpdate() {
   return (
     <>
       <div>
-        <Commoncomponent name={userdata}/>
+        <Commoncomponent/>
       </div>
       <Progressbar bgcolor="orange" progress="30" height={30} />
       <form onSubmit={handlesubmit}>

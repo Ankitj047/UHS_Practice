@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { BiLogOutCircle } from "react-icons/bi";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
-export default function Commoncomponent(props) {
-  const {email,profilephoto} = props?.name
+export default function Commoncomponent() {
   const navigate = useNavigate();
   const [ishover, setIshover] = useState(false);
+
+  const userdata = useSelector((state)=> state.posts.userdata)
+  const usergetdata = userdata;
+
   const onMouseOver = () => {
     setIshover(true)
   }
@@ -20,9 +24,8 @@ export default function Commoncomponent(props) {
   return (
     <>
       <div className="logout">
-      <img src={profilephoto} alt="Image" className="profilephoto"/>
-        <div className="welcome"> Welcome {email}</div>
-        {/* <div>{profilephoto}</div> */}
+      <img src={usergetdata.profilephoto} alt="Image" className="profilephoto"/>
+        <div className="welcome"> Welcome {usergetdata.email}</div>
         
         <div className="logoutdiv">
       <div>Logout</div>

@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userSliceAction } from "../store/slices/userSlice";
-import { getregisterApiurl } from "../APICALL";
 import Progressbar from "./Progressbar";
 import { useNavigate } from "react-router";
 import Commoncomponent from "./Commoncomponent";
-import { userudpateapiurl } from "../APICALL";
-import { createSearchParams } from "react-router-dom";
-import { getuserdataurl } from "../APICALL";
-import { postSliceAction } from "../store/slices/postslice";
 import { adduserdata, token, verifyuser } from "../APICALL/APIcalls";
-import FileBase64 from 'react-file-base64';
-import Sidebar from "../Home/NavbarHeaderPages/Sidebar";
 
 const initialstate = {
   fname: "",
@@ -77,7 +69,7 @@ export default function UserUpdate() {
     <>
       <div className="container-fluid p-0">
         <div>
-          <Commoncomponent name={usergetdata} />
+          <Commoncomponent/>
           <div>
             <Progressbar progress="0" />
           </div>
