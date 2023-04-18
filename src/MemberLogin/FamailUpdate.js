@@ -8,10 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { userSliceAction } from "../store/slices/userSlice";
 import { familydata, token } from "../APICALL/APIcalls";
 import { TiDeleteOutline } from "react-icons/ti";
+import { useNavigate } from "react-router-dom";
 
 export default function FamailUpdate() {
   const userid = token.id
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [formValues, setFormValues] = useState([
     { fname: "", lname: "", age: "" },
   ]);
@@ -19,7 +21,8 @@ export default function FamailUpdate() {
   const handlesubmit = async (e) => {
     e.preventDefault();
     const formdata = {userid: userid, familydata: formValues}
-    familydata(familydata)
+    console.log(formdata)
+    familydata(formdata,dispatch,navigate)
   };
 
   const handleChange = (i, e) => {
@@ -95,8 +98,8 @@ export default function FamailUpdate() {
         <div>
         </div>
         </div>
-      </form>
       <button type="submit" className="familysubmit">Submit</button>
+      </form>
     </>
   );
 }

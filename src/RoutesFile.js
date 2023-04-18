@@ -8,6 +8,7 @@ import Ourmission from './Home/NavbarHeaderPages/Ourmission';
 import FamailUpdate from './MemberLogin/FamailUpdate';
 import UserUpdate from './MemberLogin/UserUpdate';
 import Dashboard from './MemberLogin/Dashboard';
+import Phase1disease from './MemberLogin/Phase1disease';
 
 
 
@@ -22,7 +23,8 @@ export default function RoutesFile() {
         <Route path={"/registration"} element={<Registration/>}></Route>
         <Route path={"/usersinfo"} element={<UserUpdate/>}></Route>
         <Route path={"/familyupdate"} element={<FamailUpdate/>}></Route>
-        <Route path={"/Dashboard"} element={<Dashboard/>}></Route>
+        <Route path={"/ChooseType"} element={<Dashboard/>}></Route>
+        <Route path={"/Phase1disease"} element={<Phase1disease/>}></Route>
     </Routes>
     </BrowserRouter>
   )
