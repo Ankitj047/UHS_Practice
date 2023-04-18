@@ -43,7 +43,8 @@ export const loginapi = async (formdata, navigate, dispatch) => {
 export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await MultiFileAPI.patch(`userpersonaldata`, formdata);
-    dispatch(postSliceAction.userdata(data));
+    // dispatch(postSliceAction.userdata(data));
+    // console.log(data,"data")
     navigate(`/familyupdate`);
   } catch (error) {
     console.log(error);
@@ -54,7 +55,6 @@ export const verifyuser = async (id, dispatch) => {
 try {
   const {data} = await API.get(`/userpersonaldata/${id}`)
   dispatch(postSliceAction.userdata(data))
-  console.log(data)
 } catch (error) {
   console.log(error?.messaage)
 }
@@ -63,7 +63,7 @@ try {
 export const familydata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await API.patch(`userpersonaldata`, formdata);
-    dispatch(postSliceAction.userdata(data));
+    dispatch(postSliceAction.familydata(data));
     navigate(`/familyupdate`);
   } catch (error) {
     console.log(error);
