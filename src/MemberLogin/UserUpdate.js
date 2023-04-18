@@ -38,13 +38,11 @@ export default function UserUpdate() {
   }, []);
 
   const handlsubmit = async (e) => {
-    console.log(formdata, "formdata1");
     e.preventDefault();
     if (regexcheck() == true) {
       // formdata.userid = userregisterid;
       // setFormdata({...formdata})
       setFormdata({ ...formdata,userid: userregisterid });
-      console.log(formdata, "formdata2");
       adduserdata(formdata, dispatch, navigate);
     } else {
       setErrormessage("Please Accept T&C");
@@ -52,8 +50,6 @@ export default function UserUpdate() {
   };
 
   const handleImageChange = (e) => {
-
-    console.log(e.target.files[0])
     setFormdata({...formdata, profilephoto: e.target.files[0]})
   }
 

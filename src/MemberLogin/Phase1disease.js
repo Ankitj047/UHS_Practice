@@ -14,13 +14,10 @@ export default function Phase1disease() {
   }, []);
 
   useEffect(() => {
-    // console.log(diseases, "diseases");
    const phasecheck =  diseases.filter((item)=> item.type == "Low")
    setPhase1data(phasecheck)
   }, [diseases]);
 
-
-console.log(phase1data,"phase1data")
   return(
   <>  <div>Phase1disease</div>
     {phase1data.map((item)=> {

@@ -21,7 +21,6 @@ export default function FamailUpdate() {
   const handlesubmit = async (e) => {
     e.preventDefault();
     const formdata = {userid: userid, familydata: formValues}
-    console.log(formdata)
     familydata(formdata,dispatch,navigate)
   };
 
