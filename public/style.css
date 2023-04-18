@@ -525,3 +525,98 @@
   align-items: end;
   margin-left: 10px;
 }
+
+#wrapper {
+	display: flex;
+}
+
+#wrapper #content-wrapper {
+	background-color: #f8f9fc;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+#wrapper #content-wrapper #content {
+	flex: 1 0 auto;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+#wrapper #content-wrapper #content h1 {
+  margin-bottom: 10px !important;
+}
+.col-12 .list_item_wrapper {
+  margin-bottom: 0;
+}
+
+.list_item_wrapper {
+  margin-top: 0;
+}
+.select_rental_wrap {
+	justify-content: space-between;
+}
+
+body .select_rental_wrap .select_rent_item {
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+.select_rent_item {
+	flex: 0 0 49%;
+	max-width: 49%;
+}
+body .select_rental_wrap .select_rent_item {
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+a.select_rent_anc:hover {
+	text-decoration: none !important;
+	color: #fff;
+}
+a.select_rent_anc i {
+	margin-right: 20px;
+	font-size: 25px;
+}
+
+a.apartment.select_rent_anc {
+	background: #66c05b;
+}
+
+a.select_rent_anc:hover {
+	text-decoration: none !important;
+}
+
+a.select_rent_anc {
+	height: 80px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	background: #056389;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	position: relative;
+}
+
+a.select_rent_anc:before {
+	content: '\f054';
+	position: absolute;
+	right: 20px;
+	font-family: 'Font Awesome 5 Free';
+}
+.srp_note p {
+	margin: 15px 0 0;
+	font-size: 14px;
+	color: #333;
+  font-size: 13px;
+}

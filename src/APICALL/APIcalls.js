@@ -30,10 +30,9 @@ export const loginapi = async (formdata, navigate, dispatch) => {
   try {
     const { data } = await API.post(`login`, formdata);
     if (data.messaage == "successful") {
-      navigate("/usersinfo");
+      navigate("/Dashboard");
       dispatch(postSliceAction.loginauthdata(data))
       localStorage.setItem("authdata",JSON.stringify(data))
-      console.log(data,"data")
     }
   } catch (err) {
     console.log(err);
