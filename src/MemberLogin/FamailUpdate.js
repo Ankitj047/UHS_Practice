@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import Commoncomponent from "./Commoncomponent";
 import { useDispatch, useSelector } from "react-redux";
 import { userSliceAction } from "../store/slices/userSlice";
-import { familydata, token } from "../APICALL/APIcalls";
+import { familydata, token, verifyuser } from "../APICALL/APIcalls";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
 
@@ -20,14 +20,16 @@ export default function FamailUpdate() {
 
   const familyData = useSelector((state) => state.posts.userdata )
 
-
+  useEffect(() => {
+    verifyuser(userid, dispatch);
+  }, []);
 
   useEffect(() => {
-    if (familyData.familydata.length > 0){
+    if (familyData?.familydata?.length > 0){
       console.log( "famildata", familyData.familydata)
       setFormValues(familyData.familydata)
     }
-  }, []);
+  }, [familyData]);
 
   const handlesubmit = async (e) => {
     e.preventDefault();
