@@ -94,3 +94,23 @@ export const diseasedata = async (dispatch) => {
     console.log(error?.messaage)
   }
 }
+
+export const dieasesadd1 = async (formdata, navigate) => {
+
+  try {
+    const {data} = await API.patch(`diseaseadd1`, formdata)
+    navigate('/Phase2disease')
+  } catch (error) {
+    console.log(error?.messaage)
+  }
+}
+
+export const dieasesadd2 = async (formdata, navigate) => {
+
+  try {
+    const {data} = await API.patch(`diseaseadd2`, formdata)
+    // navigate('/Phase3disease')
+  } catch (error) {
+    console.log(error?.messaage)
+  }
+}

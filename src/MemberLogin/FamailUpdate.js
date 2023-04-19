@@ -18,6 +18,17 @@ export default function FamailUpdate() {
     { fname: "", lname: "", age: "" },
   ]);
 
+  const familyData = useSelector((state) => state.posts.userdata )
+
+
+
+  useEffect(() => {
+    if (familyData.familydata.length > 0){
+      console.log( "famildata", familyData.familydata)
+      setFormValues(familyData.familydata)
+    }
+  }, []);
+
   const handlesubmit = async (e) => {
     e.preventDefault();
     const formdata = {userid: userid, familydata: formValues}
