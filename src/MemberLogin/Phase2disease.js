@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { dieasesadd1, diseasedata, token } from "../APICALL/APIcalls";
+import { dieasesadd2, diseasedata, token } from "../APICALL/APIcalls";
 import { useDispatch, useSelector } from "react-redux";
 import Commoncomponent from "./Commoncomponent";
 import Progressbar from "./Progressbar";
 import { useNavigate } from "react-router";
 
-export default function Phase1disease() {
+export default function Phase2disease() {
   const userId = token?.id
   const navigate = useNavigate()
   const [phase1data, setPhase1data] = useState([]);
@@ -19,7 +19,7 @@ export default function Phase1disease() {
   }, []);
 
   useEffect(() => {
-    const phasecheck = diseases.filter((item) => item.type == "Low");
+    const phasecheck = diseases.filter((item) => item.type == "Medium");
     setPhase1data(phasecheck);
   }, [diseases]);
 
@@ -28,7 +28,7 @@ export default function Phase1disease() {
     formdata.userid = userId
     formdata.diseasedata = phase1data
     console.log(formdata,"formdata")
-    dieasesadd1(formdata, navigate)
+    dieasesadd2(formdata, navigate)
   };
 
   const handleDiseaseCheck = (id) => {
