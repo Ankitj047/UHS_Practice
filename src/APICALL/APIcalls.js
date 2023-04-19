@@ -90,7 +90,6 @@ export const diseasedata = async (dispatch) => {
   try {
   const {data}= await API.get(`disease`)  
   dispatch(diseaseSliceAction.diseasedata(data))
-  console.log(data,"diseasedata")  
   } catch (error) {
     console.log(error?.messaage)
   }

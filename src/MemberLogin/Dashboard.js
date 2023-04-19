@@ -42,7 +42,7 @@ export default function Dashboard() {
                       <div className="srp_note">
                         <p>
                           <b>Note:</b> Choose Agent only in case you are going
-                          to add more than 1 person and his family data. and/or
+                          to add more then 1 person and his family data. and/or
                           you are employer and going to add your's employee
                           data.
                         </p>
