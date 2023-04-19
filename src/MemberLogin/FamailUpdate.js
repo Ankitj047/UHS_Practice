@@ -39,8 +39,22 @@ export default function FamailUpdate() {
 
   const handleChange = (i, e) => {
     let newformvalues = [...formValues];
-    formValues[i][e.target.name] = e.target.value;
-    setFormValues(newformvalues);
+    // console.log(formValues[i][e.target.name],"newformvalues")
+
+      // let name=e.target.name
+
+    let newArr=formValues.map((item,index)=>{
+      if(index===i){
+        return {
+          ...item,
+        [e.target.name]:e.target.value
+        }
+      }else{
+        return item
+      }
+    })
+    // formValues[i][e.target.name] = e.target.value;
+    setFormValues(newArr);
   };
   const removethisfield = (i) => {
     let newformvalues = [...formValues];
