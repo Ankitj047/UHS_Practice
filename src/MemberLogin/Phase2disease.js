@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { dieasesadd2, diseasedata, token } from "../APICALL/APIcalls";
+import {  diseasedata, token } from "../APICALL/APIcalls";
 import { useDispatch, useSelector } from "react-redux";
 import Commoncomponent from "./Commoncomponent";
 import Progressbar from "./Progressbar";
@@ -28,7 +28,7 @@ export default function Phase2disease() {
     formdata.userid = userId
     formdata.diseasedata = phase1data
     console.log(formdata,"formdata")
-    dieasesadd2(formdata, navigate)
+    // dieasesadd2(formdata, navigate)
   };
 
   const handleDiseaseCheck = (id) => {

@@ -3,12 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const diseaseSlice = createSlice({
     name:"disease",
     initialState : {
-        diseasedata:[]
+        diseasedata:[],
+        userDiseaseData:[]
     },
 
     reducers:{
         diseasedata(state,action){
 state.diseasedata = action.payload
+        },
+        userDiseaseData(state,action){
+            state.userDiseaseData = action.payload
         }
     }
 })

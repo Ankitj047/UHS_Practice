@@ -86,31 +86,28 @@ export const familydata = async (formdata, dispatch, navigate) => {
 // };
 
 export const diseasedata = async (dispatch) => {
-
   try {
-  const {data}= await API.get(`disease`)  
-  dispatch(diseaseSliceAction.diseasedata(data))
+    const { data } = await API.get(`disease`);
+    dispatch(diseaseSliceAction.diseasedata(data));
   } catch (error) {
-    console.log(error?.messaage)
+    console.log(error?.messaage);
   }
-}
+};
 
-export const dieasesadd1 = async (formdata, navigate) => {
-
+export const Userdieseasdata = async (formdata, navigate) => {
   try {
-    const {data} = await API.patch(`diseaseadd1`, formdata)
-    navigate('/Phase2disease')
+    const data = await API.post(`dieasedata`, formdata);
+    navigate("/Phase2disease")
   } catch (error) {
-    console.log(error?.messaage)
+    console.log(error?.messaage);
   }
-}
+};
 
-export const dieasesadd2 = async (formdata, navigate) => {
-
+export const dieasesDataGet = async (userId, dispatch) => {
   try {
-    const {data} = await API.patch(`diseaseadd2`, formdata)
-    // navigate('/Phase3disease')
+    const {data}= await API.get(`dieasesDataGet?userId=${userId}`);
+    dispatch(diseaseSliceAction.userDiseaseData(data))
   } catch (error) {
-    console.log(error?.messaage)
+    console.log(error?.messaage);
   }
-}
+};

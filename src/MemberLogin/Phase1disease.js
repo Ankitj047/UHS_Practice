@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { dieasesadd1, diseasedata, token } from "../APICALL/APIcalls";
+import { Userdieseasdata, dieasesDataGet, diseasedata, token } from "../APICALL/APIcalls";
 import { useDispatch, useSelector } from "react-redux";
 import Commoncomponent from "./Commoncomponent";
 import Progressbar from "./Progressbar";
@@ -10,25 +10,29 @@ export default function Phase1disease() {
   const userId = token?.id
   const navigate = useNavigate()
   const [phase1data, setPhase1data] = useState([]);
-  const [diseasecheck, setDiseasecheck] = useState(false);
   const dispatch = useDispatch();
   const diseases = useSelector((state) => state.disease.diseasedata);
+  const userDieaseData = useSelector((state)=> state.disease.userDiseaseData) 
 
   useEffect(() => {
     diseasedata(dispatch);
+    dieasesDataGet(userId,dispatch)
   }, []);
 
   useEffect(() => {
     const phasecheck = diseases.filter((item) => item.type == "Low");
     setPhase1data(phasecheck);
-  }, [diseases]);
+    
+    if (userDieaseData?.diseasesData?.length > 0){
+      setPhase1data(userDieaseData?.diseasesData)
+    }
+  }, [diseases, userDieaseData]);
 
   const handleSubmit = () => {
     const formdata = new Object;
     formdata.userid = userId
-    formdata.diseasedata = phase1data
-    console.log(formdata,"formdata")
-    dieasesadd1(formdata, navigate)
+    formdata.diseasesData = phase1data
+    Userdieseasdata(formdata, navigate)
   };
 
   const handleDiseaseCheck = (id) => {
@@ -66,8 +70,8 @@ export default function Phase1disease() {
                   type="checkbox"
                   id={item._id}
                   value={item.isChecked}
-                  diseasecheck={item.isChecked[item._id]}
                   onChange={() => handleDiseaseCheck(item._id)}
+                  checked={item.isChecked}
                 />
               </td>
             </tr>
