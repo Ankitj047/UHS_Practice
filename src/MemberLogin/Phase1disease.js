@@ -11,6 +11,7 @@ export default function Phase1disease() {
   const navigate = useNavigate()
   const [phase1data, setPhase1data] = useState([]);
   const dispatch = useDispatch();
+  const userdata = useSelector((state) => state.posts.userdata);
   const diseases = useSelector((state) => state.disease.diseasedata);
   const userDieaseData = useSelector((state)=> state.disease.userDiseaseData) 
 
@@ -45,6 +46,7 @@ export default function Phase1disease() {
     });
     setPhase1data(check)
   };
+
   return (
     <>
      <div className="container-fluid p-0">
@@ -74,6 +76,21 @@ export default function Phase1disease() {
                   checked={item.isChecked}
                 />
               </td>
+              {item.isChecked == true && (
+<table>
+    <td>{userdata.fname}</td>
+    <td> <input type="checkbox" /></td>
+    {/* <td>{userdata.familydata}</td> */}
+    {userdata?.familydata?.map((item)=> {
+      return (
+        <tr>
+        <td>{item.fname}</td>
+        <td> <input type="checkbox" /></td>
+        </tr>
+      )
+    })}
+</table>
+              ) }
             </tr>
           );
         })}

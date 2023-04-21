@@ -40,9 +40,9 @@ export default function UserUpdate() {
   const handlsubmit = async (e) => {
     e.preventDefault();
     if (regexcheck() == true) {
-      formdata.userid = userregisterid;
-      setFormdata({...formdata})
-      // setFormdata({ ...formdata,userid: userregisterid });
+      // formdata.userid = userregisterid;
+      // setFormdata({...formdata})
+      setFormdata({ ...formdata,userid: userregisterid });
       adduserdata(formdata, dispatch, navigate);
     } else {
       setErrormessage("Please Accept T&C");
