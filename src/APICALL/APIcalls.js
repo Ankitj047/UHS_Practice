@@ -65,21 +65,12 @@ export const verifyuser = async (id, dispatch) => {
   }
 };
 
-export const familydata = async (formdata, dispatch, navigate) => {
-  try {
-    const { data } = await API.post(`familyAdd`, formdata);
-    dispatch(postSliceAction.familydata(data));
-    // navigate(`/Phase1disease`);
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 // export const subjectdata = async (dispatch) => {
-//   try {
-//     const { data } = await API.get(`subjectroute`);
-//     dispatch(postSliceAction.subjectdata(data));
-//     console.log(data,"datasubjext")
+  //   try {
+    //     const { data } = await API.get(`subjectroute`);
+    //     dispatch(postSliceAction.subjectdata(data));
+    //     console.log(data,"datasubjext")
 //   } catch (error) {
 //     console.log(error?.messaage);
 //   }
@@ -112,11 +103,29 @@ export const dieasesDataGet = async (userId, dispatch) => {
   }
 };
 
+export const AddFamilydata = async (formdata, dispatch, navigate) => {
+  try {
+    const { data } = await API.post(`familyAdd`, formdata);
+    dispatch(postSliceAction.familydata(data));
+    // navigate(`/Phase1disease`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const familyDataGet = async (userId,dispatch) => {
   try {
     const {data }= await API.get(`familyDataGet?userID=${userId}`)
     dispatch(postSliceAction.familydata(data));
   } catch (error) {
     console.log(error?.messaage)
+  }
+}
+
+export const familyMemberDelete = async (id,dispatch) => {
+  try {
+    const data = await API.delete(`familyMemberDelete/${id}`)
+  } catch (error) {
+    console.log(error?.message)
   }
 }

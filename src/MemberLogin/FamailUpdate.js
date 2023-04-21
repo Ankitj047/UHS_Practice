@@ -6,9 +6,16 @@ import { useParams } from "react-router-dom";
 import Commoncomponent from "./Commoncomponent";
 import { useDispatch, useSelector } from "react-redux";
 import { userSliceAction } from "../store/slices/userSlice";
-import { familyDataGet, familydata, token } from "../APICALL/APIcalls";
+import {
+  AddFamilydata,
+  familyDataGet,
+  familyMemberDelete,
+  token,
+} from "../APICALL/APIcalls";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 export default function FamailUpdate() {
   const userid = token.id;
@@ -17,9 +24,10 @@ export default function FamailUpdate() {
   const [formValues, setFormValues] = useState([
     { fname: "", lname: "", age: "" },
   ]);
-
+  const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState()
+  const [uid, setUid] = useState()
   const familyData = useSelector((state) => state.posts.familydata);
-  console.log(familyData, "familyData");
 
   useEffect(() => {
     familyDataGet(userid, dispatch);
@@ -35,7 +43,7 @@ export default function FamailUpdate() {
   const handlesubmit = async (e) => {
     e.preventDefault();
     const formdata = { userID: userid, familyData: formValues };
-    familydata(formdata, dispatch, navigate);
+    AddFamilydata(formdata, dispatch, navigate);
   };
 
   const handleChange = (i, e) => {
@@ -51,14 +59,31 @@ export default function FamailUpdate() {
     });
     setFormValues(newArr);
   };
-  const removethisfield = (i) => {
+
+  const removethisfield = (i, uid) => {
+    debugger;
     let newformvalues = [...formValues];
     newformvalues.splice(i, 1);
+    if (uid !== undefined) {
+      familyMemberDelete(uid, dispatch);
+    }
     setFormValues(newformvalues);
+    setShowModal(false);
   };
+
   const addformField = (e) => {
     setFormValues([...formValues, { fname: "", lname: "", age: "" }]);
   };
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const handleOpen = (id, uid) => {
+    setId(id)
+    setUid(uid)
+    setShowModal(true)
+  }
   return (
     <>
       <div>
@@ -78,7 +103,9 @@ export default function FamailUpdate() {
             <div key={index} className="family-container-inside">
               <div className="container">
                 <div className="row">
-                  <div className="col-sm" style={{display: "none"}}>{item?._id}</div>
+                  <div className="col-sm" style={{ display: "none" }}>
+                    {item?._id}
+                  </div>
                   <div className="col-sm">
                     <input
                       type="text"
@@ -113,8 +140,10 @@ export default function FamailUpdate() {
                   <div className="col-sm">
                     {index ? (
                       <button
-                        onClick={() => removethisfield(index)}
+                        // onClick={(uid) => removethisfield(index, item._id)}
+                        onClick={(uid) => handleOpen(index, item._id)}
                         style={{ backgroundColor: "red" }}
+                        type="button"
                       >
                         <TiDeleteOutline className="deleteIcon" />
                       </button>
@@ -130,6 +159,38 @@ export default function FamailUpdate() {
           Submit
         </button>
       </form>
+                        <Modal
+                          show={showModal}
+                          onHide={handleClose}
+                          size="lg"
+                          aria-labelledby="contained-modal-title-vcenter"
+                          centered
+                        >
+                          <Modal.Header>
+                            <Modal.Title id="contained-modal-title-vcenter">
+                              Modal heading
+                            </Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            <h4>Centered Modal</h4>
+                            <p>
+                              Cras mattis consectetur purus sit amet fermentum.
+                              Cras justo odio, dapibus ac facilisis in, egestas
+                              eget quam. Morbi leo risus, porta ac consectetur
+                              ac, vestibulum at eros.
+                            </p>
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button onClick={() => handleClose()}>Close</Button>
+                            <Button
+                              onClick={() =>
+                                removethisfield(id, uid)
+                              }
+                            >
+                              Save
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
     </>
   );
 }
