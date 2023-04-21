@@ -7,7 +7,8 @@ const postSlice = createSlice({
     loginauthdata: [],
     logindata: [],
     userdata: [],
-    subjectdata:[]
+    subjectdata:[],
+    familydata:[]
   },
 
   reducers: {

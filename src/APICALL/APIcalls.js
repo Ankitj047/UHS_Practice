@@ -17,7 +17,7 @@ const API = axios.create({
 const MultiFileAPI = axios.create({
   baseURL: baseurl,
   headers: {
-    authorization: token.token,
+    authorization: token?.token,
     "Content-Type": "multipart/form-data",
   },
 });
@@ -48,8 +48,8 @@ export const loginapi = async (formdata, navigate, dispatch) => {
 export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await MultiFileAPI.patch(`userpersonaldata`, formdata);
-    // dispatch(postSliceAction.userdata(data));
-    // console.log(data,"data")
+    dispatch(postSliceAction.userdata(data));
+    console.log(data,"data")
     navigate(`/familyupdate`);
   } catch (error) {
     console.log(error);
@@ -67,7 +67,7 @@ export const verifyuser = async (id, dispatch) => {
 
 export const familydata = async (formdata, dispatch, navigate) => {
   try {
-    const { data } = await API.patch(`familyAdd`, formdata);
+    const { data } = await API.post(`familyAdd`, formdata);
     dispatch(postSliceAction.familydata(data));
     // navigate(`/Phase1disease`);
   } catch (error) {
@@ -111,3 +111,12 @@ export const dieasesDataGet = async (userId, dispatch) => {
     console.log(error?.messaage);
   }
 };
+
+export const familyDataGet = async (userId,dispatch) => {
+  try {
+    const {data }= await API.get(`familyDataGet?userID=${userId}`)
+    dispatch(postSliceAction.familydata(data));
+  } catch (error) {
+    console.log(error?.messaage)
+  }
+}
