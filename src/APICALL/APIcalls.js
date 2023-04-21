@@ -67,9 +67,9 @@ export const verifyuser = async (id, dispatch) => {
 
 export const familydata = async (formdata, dispatch, navigate) => {
   try {
-    const { data } = await API.patch(`userpersonaldata`, formdata);
+    const { data } = await API.patch(`familyAdd`, formdata);
     dispatch(postSliceAction.familydata(data));
-    navigate(`/Phase1disease`);
+    // navigate(`/Phase1disease`);
   } catch (error) {
     console.log(error);
   }

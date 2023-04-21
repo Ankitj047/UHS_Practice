@@ -33,16 +33,11 @@ export default function FamailUpdate() {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-    const formdata = {userid: userid, familydata: formValues}
+    const formdata = {userID: userid, familyData: formValues}
     familydata(formdata,dispatch,navigate)
   };
 
   const handleChange = (i, e) => {
-    let newformvalues = [...formValues];
-    // console.log(formValues[i][e.target.name],"newformvalues")
-
-      // let name=e.target.name
-
     let newArr=formValues.map((item,index)=>{
       if(index===i){
         return {
