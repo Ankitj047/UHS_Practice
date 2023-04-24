@@ -18,7 +18,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 export default function FamailUpdate() {
-  const userid = token.id;
+  const userid = token?.id;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState([
@@ -44,6 +44,7 @@ export default function FamailUpdate() {
     e.preventDefault();
     const formdata = { userID: userid, familyData: formValues };
     AddFamilydata(formdata, dispatch, navigate);
+    familyDataGet(userid, dispatch);
   };
 
   const handleChange = (i, e) => {

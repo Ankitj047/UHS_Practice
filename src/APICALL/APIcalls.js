@@ -107,7 +107,7 @@ export const AddFamilydata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await API.patch(`familyAdd`, formdata);
     dispatch(postSliceAction.familydata(data));
-    // navigate(`/Phase1disease`);
+    navigate(`/Phase1disease`);
   } catch (error) {
     console.log(error);
   }
