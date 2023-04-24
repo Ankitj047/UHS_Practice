@@ -14,6 +14,11 @@ export default function Phase1disease() {
   const userdata = useSelector((state) => state.posts.userdata);
   const diseases = useSelector((state) => state.disease.diseasedata);
   const userDieaseData = useSelector((state)=> state.disease.userDiseaseData) 
+  const familyData = useSelector((state) => state.posts.familydata);
+  const usergetdata = userdata;
+
+console.log(usergetdata,"userdata")
+console.log(familyData,"familyData")
 
   useEffect(() => {
     diseasedata(dispatch);
@@ -81,7 +86,7 @@ export default function Phase1disease() {
     <td>{userdata.fname}</td>
     <td> <input type="checkbox" /></td>
     {/* <td>{userdata.familydata}</td> */}
-    {userdata?.familydata?.map((item)=> {
+    {familyData?.map((item)=> {
       return (
         <tr>
         <td>{item.fname}</td>
