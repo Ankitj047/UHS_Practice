@@ -61,7 +61,6 @@ export default function FamailUpdate() {
   };
 
   const removethisfield = (i, uid) => {
-    debugger;
     let newformvalues = [...formValues];
     newformvalues.splice(i, 1);
     if (uid !== undefined) {
