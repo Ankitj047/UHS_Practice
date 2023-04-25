@@ -38,7 +38,7 @@ export default function Phase1disease() {
 
   useEffect(() => {
     const phasecheck = diseases.filter((item) => item.type == "Low");
-    setPhase1data(phasecheck);
+    setPhase1data(diseases);
 
     if (userDieaseData?.diseasesData?.length > 0) {
       setPhase1data(userDieaseData?.diseasesData);
@@ -48,7 +48,7 @@ export default function Phase1disease() {
   const handleSubmit = () => {
     console.log(dieaseData, "dieaseData");
     const sendData = dieaseData.filter((item) => item.ISchecked == true);
-    Userdieseasdata(sendData, navigate);
+    Userdieseasdata(dieaseData, navigate);
   };
 
   const handleDiseaseCheck = (id) => {
