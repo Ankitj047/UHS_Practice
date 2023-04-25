@@ -48,7 +48,7 @@ export const loginapi = async (formdata, navigate, dispatch) => {
 export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await MultiFileAPI.patch(`userpersonaldata`, formdata);
-    dispatch(postSliceAction.userdata(data));
+    // dispatch(postSliceAction.userdata(data));
     console.log(data,"data")
     navigate(`/familyupdate`);
   } catch (error) {
@@ -88,7 +88,7 @@ export const diseasedata = async (dispatch) => {
 export const Userdieseasdata = async (formdata, navigate) => {
   try {
     const data = await API.post(`dieasedata`, formdata);
-    navigate("/Phase2disease")
+    // navigate("/Phase2disease")
   } catch (error) {
     console.log(error?.messaage);
   }
