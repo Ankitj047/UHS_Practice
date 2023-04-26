@@ -4,7 +4,8 @@ const diseaseSlice = createSlice({
     name:"disease",
     initialState : {
         diseasedata:[],
-        userDiseaseData:[]
+        userDiseaseData:[],
+        dieasesCountShow: []
     },
 
     reducers:{
@@ -13,6 +14,9 @@ state.diseasedata = action.payload
         },
         userDiseaseData(state,action){
             state.userDiseaseData = action.payload
+        },
+        dieasesCountShow(state,action){
+            state.dieasesCountShow = action.payload
         }
     }
 })

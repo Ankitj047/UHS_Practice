@@ -38,11 +38,19 @@ export default function Phase1disease() {
 
   useEffect(() => {
     setPhase1data(diseases);
+
+  //   const tempDisease=[...diseases]
+
   //   if (userDieaseData?.length > 0) { 
-  //   const arr =  userDieaseData.map((item)=>{
-  //     const index=diseases.findIndex((i)=>i._id===item.diseasesID)
+  //   const arr =  tempDisease.map((item)=>{
+  //     const index=userDieaseData.findIndex((i)=>i.diseasesID===item._id)
   //       if(index !== -1){
-  //       return {...diseases[index], isChecked: true}
+  //       return {
+  //         ...item,
+  //         isChecked:true
+  //       }
+  //     }else{
+  //       return item
   //     }
   //   })
   //   setPhase1data(arr)
@@ -154,6 +162,7 @@ export default function Phase1disease() {
                                   handleDiseaseAdd(resp._id, item._id, e)
                                 }
                                 value={userDiease.ISchecked}
+                                checked={resp.isChecked}
                               />
                             </td>
                           </tr>
