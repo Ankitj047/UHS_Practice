@@ -9,6 +9,7 @@ import FamailUpdate from './MemberLogin/FamailUpdate';
 import UserUpdate from './MemberLogin/UserUpdate';
 import Dashboard from './MemberLogin/Dashboard';
 import Phase1disease from './MemberLogin/Phase1disease';
+import DieasesShow from './MemberLogin/DieasesShow';
 
 
 
@@ -25,6 +26,7 @@ export default function RoutesFile() {
         <Route path={"/familyupdate"} element={<FamailUpdate/>}></Route>
         <Route path={"/ChooseType"} element={<Dashboard/>}></Route>
         <Route path={"/Phase1disease"} element={<Phase1disease/>}></Route>
+        <Route path={'/dieasesTable'} element={<DieasesShow/>} ></Route>
     </Routes>
     </BrowserRouter>
   )

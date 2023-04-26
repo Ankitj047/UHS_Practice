@@ -37,29 +37,36 @@ export default function Phase1disease() {
   }, []);
 
   useEffect(() => {
-    const phasecheck = diseases.filter((item) => item.type == "Low");
     setPhase1data(diseases);
-
-    if (userDieaseData?.diseasesData?.length > 0) {
-      setPhase1data(userDieaseData?.diseasesData);
-    }
+  //   if (userDieaseData?.length > 0) { 
+  //   const arr =  userDieaseData.map((item)=>{
+  //     const index=diseases.findIndex((i)=>i._id===item.diseasesID)
+  //       if(index !== -1){
+  //       return {...diseases[index], isChecked: true}
+  //     }
+  //   })
+  //   setPhase1data(arr)
+  // }
+  // else{
+  //     setPhase1data(diseases);
+  //   }
+    
   }, [diseases, userDieaseData]);
 
   const handleSubmit = () => {
-    console.log(dieaseData, "dieaseData");
-    const sendData = dieaseData.filter((item) => item.ISchecked == true);
     Userdieseasdata(dieaseData, navigate);
+    
   };
 
   const handleDiseaseCheck = (id) => {
-    const check = phase1data.map((item) => {
+    const updateData = phase1data.map((item) => {
       if (item._id === id) {
         return { ...item, isChecked: !item.isChecked };
       } else {
         return item;
       }
     });
-    setPhase1data(check);
+    setPhase1data(updateData);
   };
 
   const handleDiseaseAdd = async (personId, dId, e) => {
@@ -90,8 +97,6 @@ export default function Phase1disease() {
       }
       
   };
-
-  console.log(dieaseData, "setDieaseData");
 
   return (
     <>
