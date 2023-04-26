@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
+import { dieasesCount, token } from '../APICALL/APIcalls';
+import { useDispatch } from 'react-redux';
 
 export default function DieasesShow() {
-    const userDieaseData = useSelector((state) => state.disease.userDiseaseData);
-    console.log(userDieaseData,"userDieaseData")
+    const userid = token?.id
+    const dispatch = useDispatch()
+const countData = useSelector((state)=> state.disease.dieasesCountShow)
+
+
+console.log(countData,"countData")
+
+   useEffect(()=>{
+    dieasesCount(userid, dispatch)
+   },[])
+ 
   return (
   <>
   <table>
@@ -12,11 +23,11 @@ export default function DieasesShow() {
             <th>Name</th>
             <th>Diease</th>
         </tr>
-        {userDieaseData.map((item)=> {
+        {countData.map((item)=> {
             return (
-                <tr key={item.id}>
-                    <td>{item.personId}</td>
-                    <td>{item.diseasesID}</td>
+                <tr>
+                    <th>{item.personId.fname}</th>
+                    <th>{item.diseasesID.name}</th>
                 </tr>
             )
         })}

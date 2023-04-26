@@ -124,9 +124,18 @@ export const familyMemberDelete = async (id,dispatch) => {
   export const dieasesDataGet = async (userId, dispatch) => {
     try {
       const {data}= await API.get(`dieasesDataGet?userId=${userId}`);
-      console.log(data,"data")
       dispatch(diseaseSliceAction.userDiseaseData(data))
     } catch (error) {
       console.log(error?.messaage);
     }
   };
+
+
+  export const dieasesCount  = async (userId, dispatch) => {
+    try {
+      const {data} = await API.get(`dieasesDataGetandCountshow?userId=${userId}`)
+     dispatch(diseaseSliceAction.dieasesCountShow(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
