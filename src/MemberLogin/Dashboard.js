@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Commoncomponent from "./Commoncomponent";
 
 export default function Dashboard() {
   return (
     <div>
+      <Commoncomponent/>
       <div id="wrapper">
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
