@@ -620,3 +620,30 @@ a.select_rent_anc:before {
 	color: #333;
   font-size: 13px;
 }
+
+table {
+  margin: 10px 0px 0px 10px ;
+  width: 500px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+table tbody {
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+table tbody tr th {
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+table tbody tr td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: 1px solid black;
+}

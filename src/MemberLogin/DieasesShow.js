@@ -43,18 +43,22 @@ const dataValue =  Object.entries(ShowData).forEach(([key, value]) => {
         <tr>
             <th>Name</th>
             <th>Diease</th>
+            <th>Price</th>
         </tr>
         {
             arrValues.map((item, i)=> {
                 return(
                     <tr>
-                        <th>{item.name}</th>
-                        <th>{item.disease}</th>
-                        <th>{priceData[item.name].at(-1)}</th>
+                        <td>{item.name}</td>
+                        <td>{item.disease}</td>
+                        <td>{priceData[item.name].at(-1)}</td>
                     </tr>
                 )
             })
         }
+        <tr>
+            <th>Total Price</th>
+        </tr>
     </tbody>
     </table></>
   )

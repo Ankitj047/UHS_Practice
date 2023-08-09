@@ -1,10 +1,9 @@
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { userSliceAction } from "../store/slices/userSlice";
 import { postSliceAction } from "../store/slices/postslice";
 import { diseaseSliceAction } from "../store/slices/diseaseslice";
 
 const baseurl = process.env.REACT_APP_BAESURL;
+
 export const token = localStorage.getItem("authdata")
   ? JSON.parse(localStorage.getItem("authdata"))
   : "";
@@ -36,7 +35,8 @@ export const loginapi = async (formdata, navigate, dispatch) => {
   try {
     const { data } = await API.post(`login`, formdata);
     if (data.messaage == "successful") {
-      navigate("/ChooseType");
+      // navigate("/ChooseType");
+      window.location.href = "http://localhost:8000/ChooseType"
       dispatch(postSliceAction.loginauthdata(data));
       localStorage.setItem("authdata", JSON.stringify(data));
     }
