@@ -54,7 +54,7 @@ export default function UserUpdate() {
   }
 
   const regexcheck = () => {
-    if (formdata.isaccept == false) {
+    if (formdata.isaccept === false) {
       return false;
     } else {
       return true;
