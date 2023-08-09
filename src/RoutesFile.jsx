@@ -17,16 +17,26 @@ export default function RoutesFile() {
   return (
     <BrowserRouter>
     <Routes>
-        <Route path={"/"} element={<Home/>}></Route>
+        <Route path={"/"} element={<Home/>}></Route>   
+        {/* Home page with all the home component */}
         <Route path={"/login"} element={<Login/>}></Route>
+        {/* Login page */}
         <Route path={"/ourmission"} element={<Ourmission/>}></Route>
+        {/* our mission page */}
         <Route path={'/forgotpass'} element={<Forgotpass/>}></Route>
+        {/* forgot password page functionality pending */}
         <Route path={"/registration"} element={<Registration/>}></Route>
+        {/* register page */}
         <Route path={"/usersinfo"} element={<UserUpdate/>}></Route>
+        {/* add details of the user */}
         <Route path={"/familyupdate"} element={<FamailUpdate/>}></Route>
+        {/* add details of the family */}
         <Route path={"/ChooseType"} element={<Dashboard/>}></Route>
+        {/* choose the type of user */}
         <Route path={"/Phase1disease"} element={<Phase1disease/>}></Route>
+        {/* show the list of diesease */}
         <Route path={'/dieasesTable'} element={<DieasesShow/>} ></Route>
+        {/* show over all diesease with family and price calculation  */}
     </Routes>
     </BrowserRouter>
   )
