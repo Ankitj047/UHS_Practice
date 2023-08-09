@@ -36,7 +36,7 @@ export default function RoutesFile() {
         <Route path={"/Phase1disease"} element={<Phase1disease/>}></Route>
         {/* show the list of diesease */}
         <Route path={'/dieasesTable'} element={<DieasesShow/>} ></Route>
-        {/* show over all diesease with family and price calculation  with new comment*/}
+        {/* show over all diesease with family and price calculation*/}
     </Routes>
     </BrowserRouter>
   )
