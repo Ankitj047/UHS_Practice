@@ -54,7 +54,7 @@ export default function UserUpdate() {
   }
 
   const regexcheck = () => {
-    if (formdata.isaccept == false) {
+    if (formdata.isaccept === false) {
       return false;
     } else {
       return true;
@@ -72,7 +72,7 @@ export default function UserUpdate() {
           <div className="container">
             <div className="row">
               <div className="col-6">
-                <img src="Images/imphealth.jpg" className="userupdarImg" />
+                <img src="Images/imphealth.jpg" className="userupdarImg" alt=""/>
               </div>
               <form onSubmit={handlsubmit} className="col-6">
                 <div>{errormessage}</div>
