@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Commoncomponent from "./Commoncomponent";
 
 export default function Dashboard() {
+
   return (
     <div>
       <Commoncomponent/>
