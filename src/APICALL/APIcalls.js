@@ -10,8 +10,12 @@ export const token = localStorage.getItem("authdata")
 
 const API = axios.create({
   baseURL: baseurl,
-  headers: { authorization: token?.token },
 });
+
+API.interceptors.request.use((req) => {
+ if(localStorage.getItem('authdata')) req.headers.Authorization = `${JSON.parse(localStorage.getItem("authdata"))?.token}` ;
+ return req
+})
 
 const MultiFileAPI = axios.create({
   baseURL: baseurl,
@@ -35,8 +39,8 @@ export const loginapi = async (formdata, navigate, dispatch) => {
   try {
     const { data } = await API.post(`login`, formdata);
     if (data.messaage == "successful") {
-      // navigate("/ChooseType");
-      window.location.href = "http://localhost:8000/ChooseType"
+      navigate("/ChooseType");
+      // window.location.href = "http://localhost:8000/ChooseType"
       dispatch(postSliceAction.loginauthdata(data));
       localStorage.setItem("authdata", JSON.stringify(data));
     }
@@ -57,6 +61,11 @@ export const adduserdata = async (formdata, dispatch, navigate) => {
 };
 
 export const verifyuser = async (id, dispatch) => {
+const token1 = localStorage.getItem("authdata")
+? JSON.parse(localStorage.getItem("authdata"))
+: "";
+
+id = token1?.id;
   try {
     const { data } = await API.get(`/userpersonaldata/${id}`);
     dispatch(postSliceAction.userdata(data));
