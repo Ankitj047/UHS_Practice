@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Commoncomponent from "./Commoncomponent";
 
 export default function Dashboard() {
-
   return (
     <div>
       <Commoncomponent/>
