@@ -19,7 +19,8 @@ export default function Commoncomponent() {
   }
   const logout = () => {
     localStorage.removeItem("authdata");
-    navigate("/login");
+    // navigate("/login");
+    window.location.href = "http://localhost:8000/login"
   };
   return (
     <>
