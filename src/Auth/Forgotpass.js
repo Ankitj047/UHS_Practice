@@ -5,10 +5,16 @@ export default function Forgotpass() {
 const navigate = useNavigate()
 
   const [emailvalue, setEailvalue] = useState();
+  const [emassage, setEmessage] = useState()
+
   const emailset = (e) => {
-    // setEailvalue(e.target.value);
-    // setEmessage({ ...emassage, emailcheck: "" });
+    setEailvalue(e.target.value);
   };
+
+  const setPassword = () => {
+    console.log(emailvalue,"first")
+    setEmessage("yes I am called");
+  }
   return (
     <div className="loginform_containernew">
       <div className="login_image_container">
@@ -41,9 +47,9 @@ const navigate = useNavigate()
           value={emailvalue}
           onChange={(e) => emailset(e)}
         />
-
-        <button className="resetpassbtn">RESET MY PASSWORD</button>
+        <button className="resetpassbtn" onClick={()=>setPassword()} >RESET MY PASSWORD</button>
       </div>
+      <p className="errormessage">{emassage}</p>
       <div className="go_back">Go back to <span style={{color:"#e9716f"}} onClick={()=> {navigate("/login")}}>Sign In</span></div>
       <div style={{marginTop: "50px"}}>
           Copyright © {new Date().getFullYear()} Ankit Jain. All rights

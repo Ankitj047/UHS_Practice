@@ -116,6 +116,7 @@ export default function Phase1disease() {
           </div>
           <div>Pleaes add all the low type diseasedata</div>
           <table>
+            <tbody>
             <tr>
               <td>Name</td>
               <td>Disease</td>
@@ -173,6 +174,7 @@ export default function Phase1disease() {
                 </tr>
               );
             })}
+            </tbody>
           </table>
           <button onClick={() => handleSubmit()}>Submit</button>
         </div>
