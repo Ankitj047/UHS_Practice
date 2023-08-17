@@ -25,6 +25,16 @@ let priceData = countData.reduce((acc, curr) => {
     return acc;
 }, {});
 
+console.log(priceData,"priceData")
+
+let totalPrice = 0;
+const deleteData = delete (priceData.price)
+
+for (const key in priceData) {
+    totalPrice += priceData[key].reduce((acc, value) => acc + value, 0);
+}
+
+
    useEffect(()=>{
     dieasesCount(userid, dispatch)
    },[])
@@ -58,6 +68,7 @@ const dataValue =  Object.entries(ShowData).forEach(([key, value]) => {
         }
         <tr>
             <th>Total Price</th>
+            <td colSpan={2} className='totalPrice'>{totalPrice}</td>
         </tr>
     </tbody>
     </table></>
