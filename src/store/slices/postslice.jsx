@@ -25,7 +25,6 @@ const postSlice = createSlice({
       state.userdata = action.payload;
     },
     familydata(state,action){
-      console.log(action.payload,"action.payload");
 state.familydata = action.payload
     },
     subjectdata(state,action){

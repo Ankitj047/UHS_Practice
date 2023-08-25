@@ -12,7 +12,6 @@ const navigate = useNavigate()
   };
 
   const setPassword = () => {
-    console.log(emailvalue,"first")
     setEmessage("yes I am called");
   }
   return (

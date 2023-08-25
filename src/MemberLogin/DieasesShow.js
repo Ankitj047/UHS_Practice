@@ -25,7 +25,6 @@ let priceData = countData.reduce((acc, curr) => {
     return acc;
 }, {});
 
-console.log(priceData,"priceData")
 
 let totalPrice = 0;
 const deleteData = delete (priceData.price)

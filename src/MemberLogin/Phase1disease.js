@@ -14,7 +14,7 @@ import { useNavigate } from "react-router";
 const initialDieaseData = {
   personId: "",
   diseasesID: "",
-  userid: "",
+  userId: "",
   ISchecked: false,
 };
 
@@ -32,12 +32,11 @@ export default function Phase1disease() {
   const familyData = useSelector((state) => state.posts.familydata);
   const usergetdata = userdata;
 
-
-  console.log(familyData,"familyData");
+console.log(familyData,"familyData")
+console.log(userdata,"userdata")
   const newFamilyData = familyData;
-  console.log(newFamilyData,"newFamilyData");
   const newData = [...newFamilyData, usergetdata];
-
+console.log(newData,"newData")
   // Create a map of secondArray for efficient lookup
   const secondArrayMap = new Map(newData.map((item) => [item._id, item]));
 
@@ -100,7 +99,7 @@ export default function Phase1disease() {
       ...userDiease,
       personId: personId,
       diseasesID: dId,
-      userid: userId,
+      userId: userId,
       ISchecked: e.target.checked === true ? true : false,
     };
     setUserDiease(obj);
@@ -168,7 +167,6 @@ export default function Phase1disease() {
                           />
                         </td>
                         { familyData?.map((resp) => {
-                          console.log(resultData, "resultArray");
                           return (
                             <tr key={resp._id}>
                               <td>{resp.fname}</td>

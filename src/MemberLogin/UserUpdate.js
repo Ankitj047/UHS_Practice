@@ -34,7 +34,6 @@ export default function UserUpdate() {
   }, [usergetdata]);
 
   useEffect(() => {
-    console.log(token, "token")
     verifyuser(userregisterid, dispatch, formdata);
   }, []);
 
