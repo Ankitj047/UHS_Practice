@@ -35,7 +35,6 @@ export default function FamailUpdate() {
 
   useEffect(() => {
     if (familyData?.length > 0) {
-      console.log("famildata", familyData.familydata);
       setFormValues(familyData);
     }
   }, [familyData]);
