@@ -90,7 +90,8 @@ id = token1?.id;
 export const AddFamilydata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await API.patch(`familyAdd`, formdata);
-    dispatch(postSliceAction.familydata(data));
+    // dispatch(postSliceAction.familydata(data)); 
+    // no need to set the data as it send only message 
     navigate(`/Phase1disease`);
   } catch (error) {
     console.log(error);

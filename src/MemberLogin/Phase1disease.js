@@ -22,6 +22,7 @@ export default function Phase1disease() {
   const userId = token?.id;
   const navigate = useNavigate();
   const [phase1data, setPhase1data] = useState([]);
+  const [resultData, setResultData] = useState([]);
   const dispatch = useDispatch();
   const [userDiease, setUserDiease] = useState(initialDieaseData);
   const [dieaseData, setDieaseData] = useState([]);
@@ -31,39 +32,56 @@ export default function Phase1disease() {
   const familyData = useSelector((state) => state.posts.familydata);
   const usergetdata = userdata;
 
+
+  console.log(familyData,"familyData");
+  const newFamilyData = familyData;
+  console.log(newFamilyData,"newFamilyData");
+  const newData = [...newFamilyData, usergetdata];
+
+  // Create a map of secondArray for efficient lookup
+  const secondArrayMap = new Map(newData.map((item) => [item._id, item]));
+
+  // Match person IDs and update the firstArray with corresponding data from secondArray
+
   useEffect(() => {
     diseasedata(dispatch);
     dieasesDataGet(userId, dispatch);
   }, []);
 
   useEffect(() => {
-    setPhase1data(diseases);
+    // setPhase1data(diseases);
+    const resultArray = userDieaseData.map((item) => ({
+      ...item,
+      personData: secondArrayMap.get(item.personId),
+    }));
+    const tempDisease = [...diseases];
 
-  //   const tempDisease=[...diseases]
+    if (resultArray?.length > 0) {
+      const arr = tempDisease.map((item) => {
+        const index = resultArray.findIndex((i) => i.diseasesID === item._id);
+        if (index !== -1) {
+          return {
+            ...item,
+            isChecked: true,
+          };
+        } else {
+          return item;
+        }
+      });
+      setPhase1data(arr);
+    } else {
+      setPhase1data(diseases);
+    }
 
-  //   if (userDieaseData?.length > 0) { 
-  //   const arr =  tempDisease.map((item)=>{
-  //     const index=userDieaseData.findIndex((i)=>i.diseasesID===item._id)
-  //       if(index !== -1){
-  //       return {
-  //         ...item,
-  //         isChecked:true
-  //       }
-  //     }else{
-  //       return item
-  //     }
-  //   })
-  //   setPhase1data(arr)
-  // }
-  // else{
-  //     setPhase1data(diseases);
-  //   }
+    setResultData(resultArray);
     
+
   }, [diseases, userDieaseData]);
+
+
 
   const handleSubmit = () => {
     Userdieseasdata(dieaseData, navigate);
-    
   };
 
   const handleDiseaseCheck = (id) => {
@@ -90,20 +108,19 @@ export default function Phase1disease() {
     if (obj.ISchecked == true) {
       setDieaseData([...dieaseData, obj]);
     } else {
-        const check = dieaseData.map((item) => {
-        if (item.personId == obj.personId){
-          if(item.diseasesID == obj.diseasesID){
-          item.ISchecked = e.target.checked
-          return item
-        }else{
-          return item
+      const check = dieaseData.map((item) => {
+        if (item.personId == obj.personId) {
+          if (item.diseasesID == obj.diseasesID) {
+            item.ISchecked = e.target.checked;
+            return item;
+          } else {
+            return item;
+          }
+        } else {
+          return item;
         }
-        }else{
-          return item
-        }
-        })
-      }
-      
+      });
+    }
   };
 
   return (
@@ -114,66 +131,94 @@ export default function Phase1disease() {
           <div>
             <Progressbar progress="50" bgcolor="orange" height={30} />
           </div>
-          <div>Pleaes add all the low type diseasedata</div>
+          <div>Pleaes add all the type of diseasedata</div>
           <table>
             <tbody>
-            <tr>
-              <td>Name</td>
-              <td>Disease</td>
-              <td>ISAffect</td>
-            </tr>
-            {phase1data.map((item) => {
-              return (
-                <tr key={item._id}>
-                  <td>{item.name}</td>
-                  <td>{item.type}</td>
-                  <td>
-                    <input
-                      type="checkbox"
-                      id={item._id}
-                      value={item.isChecked}
-                      onChange={() => handleDiseaseCheck(item._id)}
-                      checked={item.isChecked}
-                    />
-                  </td>
-                  {item.isChecked == true && (
-                    <table>
-                      <td>{userdata.fname}</td>
-                      <td>
-                        {" "}
-                        <input
-                          type="checkbox"
-                          id={userdata._id}
-                          onChange={(e) =>
-                            handleDiseaseAdd(userdata._id, item._id, e)
-                          }
-                          value={userDiease.ISchecked}
-                        />
-                      </td>
-                      {familyData?.map((resp) => {
-                        return (
-                          <tr>
-                            <td>{resp.fname}</td>
-                            <td>
-                              {" "}
-                              <input
-                                type="checkbox"
-                                id={resp._id}
-                                onChange={(e) =>
-                                  handleDiseaseAdd(resp._id, item._id, e)
+              <tr>
+                <td>Name</td>
+                <td>Disease</td>
+                <td>ISAffect</td>
+              </tr>
+              {phase1data.map((item) => {
+                return (
+                  <tr key={item._id}>
+                    <td>{item.name}</td>
+                    <td>{item.type}</td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id={item._id}
+                        value={item.isChecked}
+                        onChange={() => handleDiseaseCheck(item._id)}
+                        checked={item.isChecked}
+                      />
+                    </td>
+                    {item.isChecked == true && (
+                      <table>
+                        <td>{userdata.fname}</td>
+                        <td>
+                          {" "}
+                          <input
+                            type="checkbox"
+                            id={userdata._id}
+                            onChange={(e) =>
+                              handleDiseaseAdd(userdata._id, item._id, e)
+                            }
+                            value={userDiease.ISchecked}
+                          />
+                        </td>
+                        { familyData?.map((resp) => {
+                          console.log(resultData, "resultArray");
+                          return (
+                            <tr key={resp._id}>
+                              <td>{resp.fname}</td>
+                              <td>
+                                  <input
+                                    type="checkbox"
+                                    id={resp._id}
+                                    onChange={(e) =>
+                                      handleDiseaseAdd(resp._id, item._id, e)
+                                    }
+                                    value={userDiease.ISchecked}
+                                    checked={resp.isChecked}
+                                  />
+                                </td>
+
+{/* {resultData.length>0 && resultData.map((itemOne) => {
+                                if (
+                                  item._id == itemOne.diseasesID &&
+                                  resp._id == itemOne.personId
+                                ) {
+                                  return (
+                                    <>
+                                      <td>
+                                        <input
+                                          type="checkbox"
+                                          id={resp._id}
+                                          onChange={(e) =>
+                                            handleDiseaseAdd(
+                                              resp._id,
+                                              item._id,
+                                              e
+                                            )
+                                          }
+                                          value={userDiease.ISchecked}
+                                          checked={true}
+                                          // checked={resultArray.map((itemOne)=> item._id == itemOne.diseasesID && resp._id == itemOne.personId) ? true : resp.isChecked }
+                                        />
+                                      </td>
+                                    </>
+                                  );
                                 }
-                                value={userDiease.ISchecked}
-                                checked={resp.isChecked}
-                              />
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </table>
-                  )}
-                </tr>
-              );
-            })}
+                              })} */}
+                            </tr>
+                          );
+                        })}
+                      </table>
+                    )}
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           <button onClick={() => handleSubmit()}>Submit</button>
