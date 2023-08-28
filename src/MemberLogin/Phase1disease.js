@@ -31,12 +31,14 @@ export default function Phase1disease() {
   const userDieaseData = useSelector((state) => state.disease.userDiseaseData);
   const familyData = useSelector((state) => state.posts.familydata);
   const usergetdata = userdata;
+const toUpdateDiseases = diseases
 
-console.log(familyData,"familyData")
-console.log(userdata,"userdata")
+
   const newFamilyData = familyData;
   const newData = [...newFamilyData, usergetdata];
-console.log(newData,"newData")
+ const checkData = toUpdateDiseases.map((item)=> {return {...item, addData:newData}})
+
+ console.log(checkData,"checkData")
   // Create a map of secondArray for efficient lookup
   const secondArrayMap = new Map(newData.map((item) => [item._id, item]));
 
@@ -154,19 +156,7 @@ console.log(newData,"newData")
                     </td>
                     {item.isChecked == true && (
                       <table>
-                        <td>{userdata.fname}</td>
-                        <td>
-                          {" "}
-                          <input
-                            type="checkbox"
-                            id={userdata._id}
-                            onChange={(e) =>
-                              handleDiseaseAdd(userdata._id, item._id, e)
-                            }
-                            value={userDiease.ISchecked}
-                          />
-                        </td>
-                        { familyData?.map((resp) => {
+                        {newData?.map((resp) => {
                           return (
                             <tr key={resp._id}>
                               <td>{resp.fname}</td>
