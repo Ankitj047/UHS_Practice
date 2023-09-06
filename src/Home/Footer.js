@@ -9,8 +9,29 @@ export default function Footer() {
           reserved.
         </div>
         <div className="col sm">
-          <div><i className="fa fa-linkedin" aria-hidden="true"></i>
-</div>
+          <a href="https://www.linkedin.com" target="_blank" className="faIcon">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank" className="faIcon">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            className="faIcon"
+          >
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            className="faIcon"
+          >
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" className="faIcon">
+            <i class="fa fa-youtube" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
     </div>
