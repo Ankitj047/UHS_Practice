@@ -1,3 +1,7 @@
+a {
+  text-decoration: none !important;
+}
+
 .navspace {
   margin-right: 100px;
   margin-left: 100px;
@@ -448,20 +452,20 @@
   border-color: #000;
 }
 
-.addchlidren{
-    display: flex;
-    background-color: #34ab8f;
+.addchlidren {
+  display: flex;
+  background-color: #34ab8f;
 }
-.logout{
+.logout {
   display: flex;
   align-items: center;
   justify-content: end;
   background-color: transparent;
-   background-color:#fff;
-   height: 4.375rem;
-   flex-flow: row nowrap;
-    justify-content: space-between;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
+  background-color: #fff;
+  height: 4.375rem;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 .logout-icon {
   width: 20px;
@@ -474,19 +478,19 @@
   align-items: center;
   justify-content: end;
   background-color: transparent;
-  color:#34ab8f;
-   height: 4.375rem;
-   flex-flow: row nowrap;
-    justify-content: space-between;
+  color: #34ab8f;
+  height: 4.375rem;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 .welcome {
   color: #000 !important;
   margin-left: 10px;
   font-weight: bold;
-  font-size:small;
+  font-size: small;
 }
 
-.logout-icon div{
+.logout-icon div {
   margin-right: 20px;
 }
 
@@ -499,27 +503,27 @@
 }
 
 .userupdarImg {
-  width:-webkit-fill-available;
+  width: -webkit-fill-available;
 }
 
 .heading {
   font-weight: 900;
-    font-size: large;
-    margin-bottom: 5px;
-    color: rebeccapurple;
+  font-size: large;
+  margin-bottom: 5px;
+  color: rebeccapurple;
 }
 
-.profilephoto{
+.profilephoto {
   width: 50px;
   height: 40px;
   border-radius: 20px;
 }
-.deleteIcon{
+.deleteIcon {
   height: 30px;
   width: 30px;
 }
 
-.familysubmit{
+.familysubmit {
   display: flex;
   justify-content: end;
   align-items: end;
@@ -527,17 +531,17 @@
 }
 
 #wrapper {
-	display: flex;
+  display: flex;
 }
 
 #wrapper #content-wrapper {
-	background-color: #f8f9fc;
-	width: 100%;
-	overflow-x: hidden;
+  background-color: #f8f9fc;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 #wrapper #content-wrapper #content {
-	flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .container,
@@ -546,8 +550,8 @@
 .container-md,
 .container-sm,
 .container-xl {
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 #wrapper #content-wrapper #content h1 {
@@ -561,7 +565,7 @@
   margin-top: 0;
 }
 .select_rental_wrap {
-	justify-content: space-between;
+  justify-content: space-between;
 }
 
 body .select_rental_wrap .select_rent_item {
@@ -569,60 +573,60 @@ body .select_rental_wrap .select_rent_item {
   margin-bottom: 15px;
 }
 .select_rent_item {
-	flex: 0 0 49%;
-	max-width: 49%;
+  flex: 0 0 49%;
+  max-width: 49%;
 }
 body .select_rental_wrap .select_rent_item {
   max-width: 100%;
   margin-bottom: 15px;
 }
 a.select_rent_anc:hover {
-	text-decoration: none !important;
-	color: #fff;
+  text-decoration: none !important;
+  color: #fff;
 }
 a.select_rent_anc i {
-	margin-right: 20px;
-	font-size: 25px;
+  margin-right: 20px;
+  font-size: 25px;
 }
 
 a.apartment.select_rent_anc {
-	background: #66c05b;
+  background: #66c05b;
 }
 
 a.select_rent_anc:hover {
-	text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 a.select_rent_anc {
-	height: 80px;
-	display: flex;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	background: #056389;
-	text-transform: uppercase;
-	font-weight: 700;
-	color: #fff;
-	font-size: 18px;
-	text-align: center;
-	position: relative;
+  height: 80px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #056389;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
 }
 
 a.select_rent_anc:before {
-	content: '\f054';
-	position: absolute;
-	right: 20px;
-	font-family: 'Font Awesome 5 Free';
+  content: "\f054";
+  position: absolute;
+  right: 20px;
+  font-family: "Font Awesome 5 Free";
 }
 .srp_note p {
-	margin: 15px 0 0;
-	font-size: 14px;
-	color: #333;
+  margin: 15px 0 0;
+  font-size: 14px;
+  color: #333;
   font-size: 13px;
 }
 
 table {
-  margin: 10px 10px 0px 10px ;
+  margin: 10px 10px 0px 10px;
   width: auto;
   border: 1px solid black;
   border-radius: 10px;
@@ -647,11 +651,23 @@ table tbody tr td {
   padding: 10px;
 }
 
-.errormessage{
+.errormessage {
   color: red;
   font-size: large;
 }
 
-.totalPrice{
-  font-weight:bolder;
+.totalPrice {
+  font-weight: bolder;
+}
+
+.dropdown-toggle::after{
+  margin-top: 8px;
+}
+
+.dropdown-item{
+  font-size: medium;
+}
+
+.faIcon {
+  margin: 0 8px;
 }

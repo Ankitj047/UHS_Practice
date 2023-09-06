@@ -110,14 +110,14 @@ export default function Login() {
         <span>{emassage.emailcheck}</span>
         <span>{emassage.paslength}</span>
         <span>{emassage.passcheck}</span>
-        <div
+        <span
           className="Forgotpass"
           onClick={() => {
             navigate("/forgotpass");
           }}
         >
           Forgot your password?
-        </div>
+        </span>
         <div className="having_trouble">Having trouble logging in?</div>
         <div className="check">
           <span
@@ -125,13 +125,13 @@ export default function Login() {
             onClick={() => navigate("/registration")}
           >
             Please check
-          </span>{" "}
+          </span>
           if your email has been registered on the portal.
         </div>
         <div style={{ marginTop: "50px" }}>
           Copyright © {new Date().getFullYear()} Ankit Jain. All rights
           reserved. | Powered by @ankit
-        </div>{" "}
+        </div>
       </div>
     </>
   );
