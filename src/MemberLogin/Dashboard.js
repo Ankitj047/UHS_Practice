@@ -27,7 +27,7 @@ export default function Dashboard() {
                             className="single select_rent_anc"
                             to="/usersinfo"
                           >
-                            <i className="fa fa-user" aria-hidden="true"></i>{" "}
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             Personal Use
                           </Link>
                         </div>

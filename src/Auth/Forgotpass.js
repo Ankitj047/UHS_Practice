@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Forgotpass() {
 const navigate = useNavigate()
@@ -24,13 +25,13 @@ const navigate = useNavigate()
           alt="login"
           className="login_main_image"
         />
-        <img
+      <Link to="/">  <img
           src="Images/Logo.png"
           width="250px"
           height="100px"
           alt="log"
           className="login_uhs_logo"
-        />
+        /></Link>
       </div>
       <div className="login_input_container">
         <div className="forgotpass-container">
@@ -49,7 +50,7 @@ const navigate = useNavigate()
         <button className="resetpassbtn" onClick={()=>setPassword()} >RESET MY PASSWORD</button>
       </div>
       <p className="errormessage">{emassage}</p>
-      <div className="go_back">Go back to <span style={{color:"#e9716f"}} onClick={()=> {navigate("/login")}}>Sign In</span></div>
+      <div className="go_back">Go back to <span className="word_highlight" onClick={()=> {navigate("/login")}}>Sign In</span></div>
       <div style={{marginTop: "50px"}}>
           Copyright © {new Date().getFullYear()} Ankit Jain. All rights
           reserved. | Powered by @ankit
