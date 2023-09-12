@@ -85,9 +85,9 @@ const register = () => {
         <span>{emassage.passcheck}</span>
       </div>
       <div>
-          <a href='login'  className="Forgotpass">Back to Login Page</a>
+          <a href='login'  className="Forgotpass word_highlight">Back to Login Page</a>
         </div>
-        <div style={{marginTop: "50px"}}>
+        <div style={{marginTop: "50px", fontSize: "medium"}}>
           Copyright © {new Date().getFullYear()} Ankit Jain. All rights
           reserved. | Powered by @ankit
         </div>

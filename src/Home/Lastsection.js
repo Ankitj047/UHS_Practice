@@ -1,7 +1,11 @@
 import React from "react";
 import { BiArrowBack } from 'react-icons/bi'
+import { useNavigate } from "react-router-dom";
 
 export default function Lastsection() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="last-section-home">
       <div className="last-section-div">
@@ -18,11 +22,10 @@ export default function Lastsection() {
         network” for sharing among Universal HealthShare members.
       </div>
       <div className="last-section-div">
-        Do you want to know more about how health sharing works from a
-        provider’s perspective, click here.
+        Do you want to know more about how health sharing works from a provider’s perspective, click here.
       </div>
       <div className="last-section-div">
-        <button className="last-section-botton" onClick={()=>History.back()}> <BiArrowBack/> Go Back </button>
+        <button className="last-section-botton" onClick={()=> navigate(-1)}> <BiArrowBack/> Go Back </button>
       </div>
     </div>
   );

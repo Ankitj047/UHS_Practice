@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { loginapi } from "../APICALL/APIcalls";
+import { Link } from "react-router-dom";
 
 const errormessage = {
   emaillength: "",
@@ -17,7 +18,7 @@ export default function Login() {
   const [pass, setPass] = useState();
   const [emassage, setEmessage] = useState(errormessage);
   const [loginerr, setLoginerr] = useState("");
-  
+
   const regexCheck = () => {
     const emailregex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 
@@ -78,13 +79,16 @@ export default function Login() {
             alt="login"
             className="login_main_image"
           />
-          <img
-            src="Images/Logo.png"
-            width="250px"
-            height="100px"
-            alt="log"
-            className="login_uhs_logo"
-          />
+          <Link to="/">
+            {" "}
+            <img
+              src="Images/Logo.png"
+              width="250px"
+              height="100px"
+              alt="log"
+              className="login_uhs_logo"
+            />
+          </Link>
         </div>
         <div className="login_input_container">
           {loginerr}
@@ -111,7 +115,7 @@ export default function Login() {
         <span>{emassage.paslength}</span>
         <span>{emassage.passcheck}</span>
         <span
-          className="Forgotpass"
+          className="Forgotpass word_highlight"
           onClick={() => {
             navigate("/forgotpass");
           }}
@@ -128,7 +132,7 @@ export default function Login() {
           </span>
           if your email has been registered on the portal.
         </div>
-        <div style={{ marginTop: "50px" }}>
+        <div style={{ marginTop: "50px", fontSize: "medium" }}>
           Copyright © {new Date().getFullYear()} Ankit Jain. All rights
           reserved. | Powered by @ankit
         </div>

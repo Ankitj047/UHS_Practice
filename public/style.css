@@ -141,6 +141,7 @@ a {
 .word_highlight {
   color: #e9716f;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .word_highlight:hover {
