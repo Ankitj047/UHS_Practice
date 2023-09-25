@@ -12,7 +12,7 @@ const errormessage = {
 };
 
 export default function Login() {
-  const navigate = useNavigate();
+ const navigate = useNavigate();
   const dispatch = useDispatch();
   const [emailvalue, setEailvalue] = useState();
   const [pass, setPass] = useState();
