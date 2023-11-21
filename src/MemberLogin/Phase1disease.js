@@ -35,11 +35,13 @@ export default function Phase1disease() {
   const [newCheckData, setNewCheckData] = useState([]);
 
   useEffect(() => {
+    // API calling
     diseasedata(dispatch);
     dieasesDataGet(userId, dispatch);
   }, []);
 
   useEffect(() => {
+    // diease mark checked true or false
     const tempDisease = [...diseases];
 
     if (userDieaseData?.length > 0) {
@@ -95,11 +97,10 @@ export default function Phase1disease() {
     setResultData(newCheckData);
   }, [phase1data, newCheckData, diseases, userDieaseData]);
 
-  const handleSubmit = () => {
-    Userdieseasdata(dieaseData, navigate);
-  };
+  
 
   const handleDiseaseCheck = (id) => {
+    // html diease check mark true or false
     const updateData = resultData.map((item) => {
       if (item._id === id) {
         return { ...item, isChecked: !item.isChecked };
@@ -111,18 +112,27 @@ export default function Phase1disease() {
   };
 
   const handleDiseaseAdd = async (personId, dId, e) => {
+    // html person chec mark true or false  
     console.log(e.target.checked, "checkvalue");
 
-    newCheckData.map((item) => {
+  const updateDieaseData = newCheckData.map((item) => {
       if (item._id == dId) {
         item.addData.map((resp) => {
           if (resp._id == personId) {
-            console.log("calling");
+            return {...resp, isDieasesChecked: !resp.isDieasesChecked}
+          }
+          else{
+            return item
           }
         });
+        return item;
+      }else{
+        return item;
       }
     });
 
+    // setResultData(updateDieaseData);
+    console.log(updateDieaseData,"updateDieaseData")
     const obj = {
       ...userDiease,
       personId: personId,
@@ -147,6 +157,12 @@ export default function Phase1disease() {
       });
     }
   };
+
+  const handleSubmit = () => {
+    Userdieseasdata(dieaseData, navigate);
+  };
+
+
   return (
     <>
       <div className="container-fluid p-0">
