@@ -32,15 +32,7 @@ export default function Phase1disease() {
   const familyData = useSelector((state) => state.posts.familydata);
   const usergetdata = userdata;
   const toUpdateDiseases = diseases;
-
-  const newFamilyData = familyData;
-  const newData = [...newFamilyData, usergetdata];
-  const UpdateFamilyWithDieseaseField = newData.map((item) => {
-    return { ...item, isDieasesChecked: false };
-  });
-  const checkData = phase1data.map((item) => {
-    return { ...item, addData: UpdateFamilyWithDieseaseField };
-  });
+  const [newCheckData, setNewCheckData] = useState([]);
 
   useEffect(() => {
     diseasedata(dispatch);
@@ -71,10 +63,23 @@ export default function Phase1disease() {
   }, [diseases, userDieaseData]);
 
   useEffect(() => {
-    // Your logic here to update isDieasesChecked
+    // logic to merge dieases with the family details and mark true to dieases
+    const newFamilyData = familyData;
+    const newData = [...newFamilyData, usergetdata];
+    const UpdateFamilyWithDieseaseField = newData.map((item) => {
+      return { ...item, isDieasesChecked: false };
+    });
+    const checkData = phase1data.map((item) => {
+      return { ...item, addData: UpdateFamilyWithDieseaseField };
+    });
 
+    setNewCheckData(checkData);
+  }, [diseases, userDieaseData, phase1data]);
+
+  useEffect(() => {
+    // Your logic here to update isDieasesChecked
     for (const userDisease of userDieaseData) {
-      for (const checkItem of checkData) {
+      for (const checkItem of newCheckData) {
         if (userDisease.diseasesID === checkItem._id) {
           const updatedAddData = checkItem.addData.map((personData) => {
             if (userDisease.personId === personData._id) {
@@ -87,12 +92,11 @@ export default function Phase1disease() {
         }
       }
     }
-    setResultData(checkData);
-  }, []);
-  
+    setResultData(newCheckData);
+  }, [phase1data, newCheckData, diseases, userDieaseData]);
+
   const handleSubmit = () => {
     Userdieseasdata(dieaseData, navigate);
-
   };
 
   const handleDiseaseCheck = (id) => {
@@ -107,8 +111,18 @@ export default function Phase1disease() {
   };
 
   const handleDiseaseAdd = async (personId, dId, e) => {
+    console.log(e.target.checked, "checkvalue");
 
-    console.log(e.target.checked, "checkvalue")
+    newCheckData.map((item) => {
+      if (item._id == dId) {
+        item.addData.map((resp) => {
+          if (resp._id == personId) {
+            console.log("calling");
+          }
+        });
+      }
+    });
+
     const obj = {
       ...userDiease,
       personId: personId,
@@ -124,12 +138,12 @@ export default function Phase1disease() {
       userDieaseData.map((item) => {
         if (item.personId == obj.personId) {
           if (item.diseasesID == obj.diseasesID) {
-            const newItem = {...item , ISchecked : false};
-            setDieaseData([...dieaseData, newItem])
+            const newItem = { ...item, ISchecked: false };
+            setDieaseData([...dieaseData, newItem]);
           } else {
             setDieaseData([...dieaseData, obj]);
           }
-        } 
+        }
       });
     }
   };
