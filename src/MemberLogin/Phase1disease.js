@@ -10,6 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Commoncomponent from "./Commoncomponent";
 import Progressbar from "./Progressbar";
 import { useNavigate } from "react-router";
+import { useSearchParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const initialDieaseData = {
   personId: "",
@@ -33,11 +37,18 @@ export default function Phase1disease() {
   const usergetdata = userdata;
   const toUpdateDiseases = diseases;
   const [newCheckData, setNewCheckData] = useState([]);
+const [searchParams] = useSearchParams();
+
 
   useEffect(() => {
     // API calling
     diseasedata(dispatch);
     dieasesDataGet(userId, dispatch);
+
+    if (searchParams.get('id') == 1){
+      console.log("calling")
+      toast("Please Update Disease!")
+    }
   }, []);
 
   useEffect(() => {
@@ -171,6 +182,7 @@ export default function Phase1disease() {
           <div>
             <Progressbar progress="50" bgcolor="orange" height={30} />
           </div>
+          <ToastContainer/>
           <div>Pleaes add all the type of diseasedata</div>
           <table>
             <tbody>
