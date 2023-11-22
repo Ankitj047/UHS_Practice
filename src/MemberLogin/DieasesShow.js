@@ -4,6 +4,7 @@ import { dieasesCount, token } from "../APICALL/APIcalls";
 import { useDispatch } from "react-redux";
 import Commoncomponent from "./Commoncomponent";
 import { useNavigate } from "react-router";
+import { saveFinalPrice } from "../APICALL/APIcalls";
 
 export default function DieasesShow() {
   const navigate = useNavigate();
@@ -58,7 +59,12 @@ const [errorMessage, setErrorMessage] = useState();
 
   const handleSubmit = () => {
     if(isChecked == true){
-
+     const body = {
+      userId: token.id,
+      IsAccept: isChecked,
+      finalPrice: totalPrice,
+     } 
+saveFinalPrice(body, navigate)
     }
     else{
         setErrorMessage("Please read and accpet.")
