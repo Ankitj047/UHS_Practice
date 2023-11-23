@@ -99,6 +99,8 @@ export default function Login() {
             placeholder="ENTER YOUR EMAIL"
             value={emailvalue}
             onChange={(e) => emailset(e)}
+            name="email"
+            autoComplete="email"
           />
           <input
             className="login_input_username"
