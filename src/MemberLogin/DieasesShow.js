@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import Commoncomponent from "./Commoncomponent";
 import { useNavigate } from "react-router";
 import { saveFinalPrice } from "../APICALL/APIcalls";
+import Progressbar from "./Progressbar";
 
 export default function DieasesShow() {
   const navigate = useNavigate();
@@ -73,7 +74,10 @@ saveFinalPrice(body, navigate)
 
   return (
     <>
-      <Commoncomponent />
+     <div>
+        <Commoncomponent/>
+      </div>
+      <Progressbar   bgcolor="#90EEEE" progress="75" height={75} />
       <table>
         <tbody>
           <tr>
