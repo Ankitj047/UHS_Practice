@@ -64,6 +64,7 @@ export default function Login() {
   };
 
   const login = () => {
+    console.log("calling")
     const formdata = { emailvalue, pass };
     loginapi(formdata, navigate, dispatch);
   };
@@ -90,7 +91,7 @@ export default function Login() {
             />
           </Link>
         </div>
-        <div className="login_input_container">
+        <form className="login_input_container" onSubmit={login}>
           {loginerr}
           <input
             className="login_input_username"
@@ -106,10 +107,10 @@ export default function Login() {
             value={pass}
             onChange={(e) => passset(e)}
           />
-          <button className="signin_button" onClick={login}>
+          <button type="submit" className="signin_button" >
             SIGN IN
           </button>
-        </div>
+        </form>
         <span>{emassage.emaillength}</span>
         <span>{emassage.emailcheck}</span>
         <span>{emassage.paslength}</span>
