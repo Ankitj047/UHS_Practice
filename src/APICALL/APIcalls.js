@@ -54,8 +54,7 @@ export const loginapi = async (formdata, navigate, dispatch) => {
 export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await MultiFileAPI.patch(`userpersonaldata`, formdata);
-    // dispatch(postSliceAction.userdata(data));
-    console.log(data,"data")
+    dispatch(postSliceAction.userdata(data));
     navigate(`/familyupdate`);
   } catch (error) {
     console.log(error);
