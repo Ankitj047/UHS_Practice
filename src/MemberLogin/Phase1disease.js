@@ -182,7 +182,6 @@ const [searchParams] = useSearchParams();
           <div>
             <Progressbar progress="50" bgcolor="orange" height={30} />
           </div>
-          <ToastContainer/>
           <div>Pleaes add all the type of diseasedata</div>
           <table>
             <tbody>

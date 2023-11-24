@@ -12,7 +12,7 @@ const errormessage = {
 };
 
 export default function Login() {
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [emailvalue, setEailvalue] = useState();
   const [pass, setPass] = useState();
@@ -30,25 +30,27 @@ export default function Login() {
       return false;
     }
 
-    if (pass?.length <= 10 || pass?.length == null || pass?.length == "") {
-      setEmessage({ ...emassage, paslength: "Min 10 length for the pass" });
+    if (pass?.length <= 4 || pass?.length == null || pass?.length == "") {
+      setEmessage({ ...emassage, paslength: "Min 5 length for the pass" });
       return false;
-    } else if (pass.match(/[A-Z]/g) < 2) {
-      setEmessage({
-        ...emassage,
-        passcheck: "there should be min 3 caps letter",
-      });
-      return false;
-    } else if (pass.match(/[a-z]/g) > 2) {
-      setEmessage({
-        ...emassage,
-        passcheck: "there should be min 3 caps letter",
-      });
-      return false;
-    } else if (pass.match(/[@%$&*]/g) > 1) {
-      setEmessage({ ...emassage, passcheck: "min 1 special character needed" });
-      return false;
-    } else {
+    } 
+    // else if (pass.match(/[A-Z]/g) < 1) {
+    //   setEmessage({
+    //     ...emassage,
+    //     passcheck: "there should be min 1 caps letter",
+    //   });
+    //   return false;
+    // } else if (pass.match(/[a-z]/g) > 1) {
+    //   setEmessage({
+    //     ...emassage,
+    //     passcheck: "there should be min 3 caps letter",
+    //   });
+    //   return false;
+    // } else if (pass.match(/[@%$&*]/g) > 1) {
+    //   setEmessage({ ...emassage, passcheck: "min 1 special character needed" });
+    //   return false;
+    // } 
+    else {
       return true;
     }
   };
@@ -64,9 +66,13 @@ export default function Login() {
   };
 
   const login = () => {
-    console.log("calling")
-    const formdata = { emailvalue, pass };
-    loginapi(formdata, navigate, dispatch);
+
+    if (regexCheck() == true) {
+      const formdata = { emailvalue, pass };
+      loginapi(formdata, navigate, dispatch);
+    } else {
+      setLoginerr("Please enter Right email and pass");
+    }
   };
 
   return (
@@ -91,28 +97,29 @@ export default function Login() {
             />
           </Link>
         </div>
-        <form className="login_input_container" onSubmit={login}>
-          {loginerr}
+        <div className="login_input_container row">
+          {/* {loginerr} */}
           <input
-            className="login_input_username"
+            className="login_input_username col"
             type="text"
             placeholder="ENTER YOUR EMAIL"
             value={emailvalue}
             onChange={(e) => emailset(e)}
             name="email"
             autoComplete="email"
+            style={{ marginLeft: "30px" }}
           />
           <input
-            className="login_input_username"
+            className="login_input_username col"
             type="text"
             placeholder="ENTER YOUR PASSWORD"
             value={pass}
             onChange={(e) => passset(e)}
           />
-          <button type="submit" className="signin_button" >
+          <button type="submit" className="signin_button col" onClick={login}>
             SIGN IN
           </button>
-        </form>
+        </div>
         <span>{emassage.emaillength}</span>
         <span>{emassage.emailcheck}</span>
         <span>{emassage.paslength}</span>
