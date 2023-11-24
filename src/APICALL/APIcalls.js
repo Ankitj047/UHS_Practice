@@ -1,6 +1,7 @@
 import axios from "axios";
 import { postSliceAction } from "../store/slices/postslice";
 import { diseaseSliceAction } from "../store/slices/diseaseslice";
+import { toast } from "react-toastify";
 
 const baseurl = process.env.REACT_APP_BAESURL;
 
@@ -46,7 +47,7 @@ export const loginapi = async (formdata, navigate, dispatch) => {
       localStorage.setItem("authdata", JSON.stringify(data));
     }
   } catch (err) {
-    console.log(err);
+    toast(err.response.data.messaage);
   }
 };
 
