@@ -54,7 +54,8 @@ export const loginapi = async (formdata, navigate, dispatch) => {
 export const adduserdata = async (formdata, dispatch, navigate) => {
   try {
     const { data } = await MultiFileAPI.patch(`userpersonaldata`, formdata);
-    dispatch(postSliceAction.userdata(data));
+// we are sending formdata to redux store as API data has only successfull message.
+    dispatch(postSliceAction.userdata(formdata));
     navigate(`/familyupdate`);
   } catch (error) {
     console.log(error);
