@@ -20,7 +20,7 @@ export default function PaymentGateway() {
 
 
   const payAmout = () => {
-    checkoutHandler(500)
+    checkoutHandler(finalPrice)
   }
 
   return (
