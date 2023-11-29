@@ -157,10 +157,18 @@ export const familyMemberDelete = async (id,dispatch) => {
 
     try {
       const data = API.post(`finalPrice`, formData)
-      
       navigate('/payment', {state: formData.finalPrice})
-      console.log(formData.finalPrice, "apiprice")
     } catch (error) {
       console.log(error)
     }
+  }
+
+export const checkoutHandler = async (amount) => {
+  
+  try {
+    const {data} =  await API.post(`checkout`, {amount})
+  } catch (error) {
+    console.log(error.messaage)
+  }
+
   }
