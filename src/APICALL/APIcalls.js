@@ -157,7 +157,6 @@ export const familyMemberDelete = async (id,dispatch) => {
 
     try {
       const data = API.post(`finalPrice`, formData)
-      
       navigate('/payment', {state: formData.finalPrice})
     } catch (error) {
       console.log(error)
