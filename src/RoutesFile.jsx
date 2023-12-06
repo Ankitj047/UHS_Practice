@@ -40,7 +40,7 @@ export default function RoutesFile() {
         <Route path={'/dieasesTable'} element={<DieasesShow/>} ></Route>
         {/* show over all diesease with family and price calculation*/}
         <Route path={'/payment'} element={<PaymentGateway/>}></Route>
-        <Route path={'/submipage'} element={<Final/>} ></Route>
+        <Route path={'/submitpage'} element={<Final/>} ></Route>
     </Routes>
     </BrowserRouter>
   )
