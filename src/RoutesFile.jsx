@@ -11,6 +11,7 @@ import Dashboard from './MemberLogin/Dashboard';
 import Phase1disease from './MemberLogin/Phase1disease';
 import DieasesShow from './MemberLogin/DieasesShow';
 import PaymentGateway from './MemberLogin/PaymentGateway';
+import Final from './MemberLogin/Final';
 
 
 
@@ -39,6 +40,7 @@ export default function RoutesFile() {
         <Route path={'/dieasesTable'} element={<DieasesShow/>} ></Route>
         {/* show over all diesease with family and price calculation*/}
         <Route path={'/payment'} element={<PaymentGateway/>}></Route>
+        <Route path={'/submipage'} element={<Final/>} ></Route>
     </Routes>
     </BrowserRouter>
   )
