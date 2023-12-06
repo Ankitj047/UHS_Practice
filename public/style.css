@@ -672,3 +672,46 @@ table tbody tr td {
 .faIcon {
   margin: 0 8px;
 }
+
+.finalPageSection {
+  display: flex;
+  align-items: center;
+  justify-content: initial;
+}
+
+.finalPageMainSection{
+  margin: 20px 0px 20px 20px ;
+  font-size: large;
+}
+
+.finalPageDivSection{
+  margin-left: 10px;
+}
+
+.button-container {
+  position: relative;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button-container:hover .tooltip {
+  opacity: 1;
+}

@@ -25,8 +25,8 @@ export default function FamailUpdate() {
     { fname: "", lname: "", age: "" },
   ]);
   const [showModal, setShowModal] = useState(false);
-  const [id, setId] = useState()
-  const [uid, setUid] = useState()
+  const [id, setId] = useState();
+  const [uid, setUid] = useState();
   const familyData = useSelector((state) => state.posts.familydata);
 
   useEffect(() => {
@@ -79,10 +79,10 @@ export default function FamailUpdate() {
   };
 
   const handleOpen = (id, uid) => {
-    setId(id)
-    setUid(uid)
-    setShowModal(true)
-  }
+    setId(id);
+    setUid(uid);
+    setShowModal(true);
+  };
   return (
     <>
       <div>
@@ -158,38 +158,31 @@ export default function FamailUpdate() {
           Submit
         </button>
       </form>
-                        <Modal
-                          show={showModal}
-                          onHide={handleClose}
-                          size="lg"
-                          aria-labelledby="contained-modal-title-vcenter"
-                          centered
-                        >
-                          <Modal.Header>
-                            <Modal.Title id="contained-modal-title-vcenter">
-                              Modal heading
-                            </Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            <h4>Centered Modal</h4>
-                            <p>
-                              Cras mattis consectetur purus sit amet fermentum.
-                              Cras justo odio, dapibus ac facilisis in, egestas
-                              eget quam. Morbi leo risus, porta ac consectetur
-                              ac, vestibulum at eros.
-                            </p>
-                          </Modal.Body>
-                          <Modal.Footer>
-                            <Button onClick={() => handleClose()}>Close</Button>
-                            <Button
-                              onClick={() =>
-                                removethisfield(id, uid)
-                              }
-                            >
-                              Save
-                            </Button>
-                          </Modal.Footer>
-                        </Modal>
+      <Modal
+        show={showModal}
+        onHide={handleClose}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
+            ac consectetur ac, vestibulum at eros.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => handleClose()}>Close</Button>
+          <Button onClick={() => removethisfield(id, uid)}>Save</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
