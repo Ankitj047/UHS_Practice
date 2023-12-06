@@ -185,3 +185,13 @@ export const checkoutHandler = async (amount) => {
     console.log(error.messaage);
   }
 };
+
+export const finalSubmission = (formData) => {
+  try {
+    console.log("test")
+const data = API.post(`pdfCreate`,formData);
+  }
+  catch (error){
+console.log(error?.messaage)
+  }
+}
