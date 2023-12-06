@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Commoncomponent from "./Commoncomponent";
 import Progressbar from "./Progressbar";
+import { finalSubmission, token } from "../APICALL/APIcalls";
 
 export default function Final() {
   const [check1, setCheck1] = useState(false);
@@ -10,6 +11,13 @@ export default function Final() {
   const [check5, setCheck5] = useState(false);
   const [error, setError] = useState();
 
+
+  const userId = token?.id;
+
+  const formData = {
+    userId: userId
+  }
+  
   const handleClick1 = () => {
     setCheck1(!check1);
     setError()
@@ -35,7 +43,9 @@ export default function Final() {
   const handleSubmit = () => {
     
     if (check1 == true && check2 == true && check3 == true && check4 == true && check5 == true) {
-        console.log("submit button clicked")
+
+        finalSubmission(formData)
+        
         setError()      
     }
     else{
