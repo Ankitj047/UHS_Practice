@@ -12,6 +12,7 @@ import Phase1disease from './MemberLogin/Phase1disease';
 import DieasesShow from './MemberLogin/DieasesShow';
 import PaymentGateway from './MemberLogin/PaymentGateway';
 import Final from './MemberLogin/Final';
+import Agent from './MemberLogin/Agent';
 
 
 
@@ -40,7 +41,10 @@ export default function RoutesFile() {
         <Route path={'/dieasesTable'} element={<DieasesShow/>} ></Route>
         {/* show over all diesease with family and price calculation*/}
         <Route path={'/payment'} element={<PaymentGateway/>}></Route>
+        {/* this is the final submission page where the user accept all t&c and get mail of submission */}
         <Route path={'/submitpage'} element={<Final/>} ></Route>
+         {/* this page is  used by the agent to upload bulk data */}
+        <Route path={'/agentUse'} element={<Agent/>}></Route>
     </Routes>
     </BrowserRouter>
   )
