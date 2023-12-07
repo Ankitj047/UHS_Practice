@@ -3,6 +3,7 @@ import { postSliceAction } from "../store/slices/postslice";
 import { diseaseSliceAction } from "../store/slices/diseaseslice";
 import { toast } from "react-toastify";
 import useRazorpay from "react-razorpay";
+import { SubmissionSliceAction } from "../store/slices/submission";
 
 const baseurl = process.env.REACT_APP_BAESURL;
 
@@ -186,10 +187,11 @@ export const checkoutHandler = async (amount) => {
   }
 };
 
-export const finalSubmission = (formData) => {
+export const finalSubmission = async (formData, dispatch) => {
   try {
-    console.log("test")
-const data = API.post(`pdfCreate`,formData);
+const data = await API.post(`pdfCreate`,formData);
+toast("Mail sent on your Email ID")
+dispatch(SubmissionSliceAction.finalSubmission(data))
   }
   catch (error){
 console.log(error?.messaage)
