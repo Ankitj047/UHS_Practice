@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState,  } from "react";
 import Commoncomponent from "./Commoncomponent";
 import Progressbar from "./Progressbar";
 import { finalSubmission, token } from "../APICALL/APIcalls";
+import { useDispatch, useSelector } from "react-redux";
+import { SubmissionSliceAction } from "../store/slices/submission";
 
 export default function Final() {
+
+  const dispatch = useDispatch();
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [check3, setCheck3] = useState(false);
   const [check4, setCheck4] = useState(false);
   const [check5, setCheck5] = useState(false);
   const [error, setError] = useState();
+  const [ loader, setLoader] = useState(false)
 
+  const submissionData = useSelector((state)=> state?.submission?.finalSubmission)
+
+  console.log(submissionData?.data?.message,"submissionData")
 
   const userId = token?.id;
 
@@ -44,7 +52,7 @@ export default function Final() {
     
     if (check1 == true && check2 == true && check3 == true && check4 == true && check5 == true) {
 
-        finalSubmission(formData)
+        finalSubmission(formData, dispatch)
         
         setError()      
     }
@@ -58,7 +66,8 @@ export default function Final() {
       <div>
         <Commoncomponent />
       </div>
-      <Progressbar bgcolor="#4CBB17" progress="95" height={95} />
+      
+      {submissionData == undefined ? <Progressbar bgcolor="#4CBB17" progress="95" height={95} />  : <Progressbar bgcolor="#4CBB17" progress="100" height={100} /> }
 
       <div className="finalPageMainSection">
         <div className="finalPageSection">
