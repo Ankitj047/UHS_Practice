@@ -17,7 +17,6 @@ export default function Agent() {
 
     if (UploadedFile && fileType.includes(UploadedFile?.type)) {
       setTypeError(null);
-      console.log(UploadedFile, "UploadedFile");
       let reader = new FileReader();
       reader.readAsArrayBuffer(UploadedFile);
       reader.onload = (e) => {
@@ -32,10 +31,12 @@ export default function Agent() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (excelFile !== null) {
-      const workBook = xlsx.read(excelFile, { type: "buffer" });
+      const workBook = xlsx.read(excelFile);
       const workSheetName = workBook.SheetNames[0];
       const workSheet = workBook.Sheets[workSheetName];
-      const data = xlsx.utils.sheet_to_json(workSheet);
+      const data = xlsx.utils.sheet_to_json(workSheet, {
+        raw: false,
+       });
       setExcelData(data);
     }
   };
@@ -63,15 +64,43 @@ export default function Agent() {
 
       {excelData ? (
         <table>
-            <thead>
+          <thead>
             <tr>
               {Object.keys(excelData[0]).map((item) => {
-              return ( <>
-                  <th key={item} style={{padding:"5px", borderColor: "black" , borderWidth: "2px"}}>{item}</th>
-                </>);
+                return (
+                  <>
+                    <th
+                      key={item}
+                      style={{
+                        padding: "5px",
+                        borderColor: "black",
+                        borderWidth: "2px",
+                      }}
+                    >
+                      {item}
+                    </th>
+                  </>
+                );
               })}
             </tr>
-            </thead>
+          </thead>
+          <tbody>
+            {excelData.map((individualData, index) => {
+            return  <tr key={index}>
+                {Object.keys(individualData).map((key) => {
+                  return (
+                    <>
+                      <td key={key}  style={{
+                        padding: "5px",
+                        borderColor: "black",
+                        borderWidth: "2px",
+                      }}>{individualData[key]}</td>
+                    </>
+                  );
+                })}
+              </tr>;
+            })}
+          </tbody>
         </table>
       ) : (
         ""
