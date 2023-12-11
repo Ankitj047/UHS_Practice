@@ -34,7 +34,7 @@ export default function Dashboard() {
                         <div className="select_rent_item">
                           <Link
                             className="apartment select_rent_anc"
-                            to="/agentUse"
+                            to="/agentDynamicUse"
                           >
                             <i className="fa fa-users" aria-hidden="true"></i>
                             <span>Agent Use</span>

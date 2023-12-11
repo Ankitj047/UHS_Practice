@@ -1,3 +1,5 @@
+// this code is only frontend excel file add and read 
+
 import React, { useState } from "react";
 import Commoncomponent from "./Commoncomponent";
 import * as xlsx from "xlsx";
