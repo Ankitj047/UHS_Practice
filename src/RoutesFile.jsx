@@ -13,6 +13,7 @@ import DieasesShow from './MemberLogin/DieasesShow';
 import PaymentGateway from './MemberLogin/PaymentGateway';
 import Final from './MemberLogin/Final';
 import Agent from './MemberLogin/Agent';
+import AgentDynamic from './MemberLogin/AgentDynamic';
 
 
 
@@ -45,6 +46,7 @@ export default function RoutesFile() {
         <Route path={'/submitpage'} element={<Final/>} ></Route>
          {/* this page is  used by the agent to upload bulk data */}
         <Route path={'/agentUse'} element={<Agent/>}></Route>
+        <Route path={'/agentDynamicUse'} element={<AgentDynamic/>} ></Route>
     </Routes>
     </BrowserRouter>
   )
