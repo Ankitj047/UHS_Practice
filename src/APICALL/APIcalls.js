@@ -25,7 +25,8 @@ const MultiFileAPI = axios.create({
   baseURL: baseurl,
   headers: {
     authorization: token?.token,
-    "Content-Type": "multipart/form-data",
+    'Content-Type':
+        'multipart/form-data; boundary=<calculated when request is sent>',
   },
 });
 
@@ -196,4 +197,16 @@ dispatch(SubmissionSliceAction.finalSubmission(data))
   catch (error){
 console.log(error?.messaage)
   }
+}
+
+export const excelDataPost = async (file) => {
+
+  try {
+    console.log(file)
+    const data = MultiFileAPI.post('/excelImportTestRoute', file)
+
+  } catch (error) {
+    console.log(error?.messaage)
+  }
+
 }
