@@ -3,14 +3,20 @@
 import React, { useState } from 'react'
 import Commoncomponent from './Commoncomponent'
 import { excelDataPost } from '../APICALL/APIcalls';
+import { useDispatch, useSelector } from 'react-redux';
+import { exceldatasliceAction } from '../store/slices/exceldataslice';
 
 export default function AgentDynamic() {
 
+  const dispatch = useDispatch();
+
+  const excelGetData = useSelector((state)=> state?.exceldata?.exceldataupdate)
+  const excelData = excelGetData?.RegisterData;
+  console.log(excelGetData,"excelData")
   let formData = {}
 
   const [excelFile, setExcelFile] = useState(null);
   const [typeError, setTypeError] = useState(null);
-  const [excelData, setExcelData] = useState(formData);
 
 const handleChange = (e) => {
   let UploadedFile = e.target.files[0];
@@ -22,11 +28,6 @@ const handleChange = (e) => {
 
   if (UploadedFile && fileType.includes(UploadedFile?.type)) {
     setTypeError(null);
-    // let reader = new FileReader();
-    // reader.readAsArrayBuffer(UploadedFile);
-    // reader.onload = (e) => {
-    //   setExcelFile(e.target.result);
-    // };
     setExcelFile({...formData,file: UploadedFile})
   } else {
     setTypeError("Please choose Excel File");
@@ -36,8 +37,7 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-console.log(excelFile,"excelFile")
-excelDataPost(excelFile)
+excelDataPost(excelFile, dispatch)
 }
   return (
     <>
@@ -61,7 +61,7 @@ excelDataPost(excelFile)
 
       {/* view data */}
 
-      {/* {excelData ? (
+      {excelData ? (
         <table>
           <thead>
             <tr>
@@ -103,7 +103,7 @@ excelDataPost(excelFile)
         </table>
       ) : (
         ""
-      )} */}
+      )}
     </>
     </>
   )

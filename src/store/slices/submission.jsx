@@ -13,6 +13,5 @@ const SubmissionSlice = createSlice({
     }
 })
 
-console.log(SubmissionSlice.reducer.finalSubmission, "SubmissionSlice.reducer")
 export default SubmissionSlice.reducer;
 export const SubmissionSliceAction = SubmissionSlice.actions;
