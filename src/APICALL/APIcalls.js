@@ -4,6 +4,7 @@ import { diseaseSliceAction } from "../store/slices/diseaseslice";
 import { toast } from "react-toastify";
 import useRazorpay from "react-razorpay";
 import { SubmissionSliceAction } from "../store/slices/submission";
+import { exceldatasliceAction } from "../store/slices/exceldataslice";
 
 const baseurl = process.env.REACT_APP_BAESURL;
 
@@ -199,12 +200,13 @@ console.log(error?.messaage)
   }
 }
 
-export const excelDataPost = async (file) => {
+export const excelDataPost = async (file, dispatch) => {
 
   try {
-    console.log(file)
-    const data = MultiFileAPI.post('/excelImportTestRoute', file)
-
+    const {data} = await MultiFileAPI.post('/excelImportTestRoute', file)
+    console.log(data,"data")
+    dispatch(exceldatasliceAction.exceldataupdate(data))
+toast("file uploaded successfully")
   } catch (error) {
     console.log(error?.messaage)
   }
