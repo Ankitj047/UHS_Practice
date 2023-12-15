@@ -11,4 +11,5 @@ https://sadam-bapunawar.medium.com/add-and-remove-form-fields-dynamically-using-
                                    b) https://razorpay.com/
 4. upload and read excel file for frontend:  a) https://www.youtube.com/results?search_query=upload+and+read+excel+file+in+nodejs+and+reactjs
                                              b) https://stackoverflow.com/questions/44967466/date-in-xls-sheet-not-parsing-correctly
-5. upload ecel file in backend: https://www.youtube.com/watch?v=yfmdY9MmomQ 
+5. upload excel file in backend: https://www.youtube.com/watch?v=yfmdY9MmomQ
+6. Export excel file as CSV: https://medium.com/@aalam-info-solutions-llp/how-to-excel-export-in-react-js-481b15b961e3
