@@ -4,6 +4,8 @@ import Progressbar from "./Progressbar";
 import { finalSubmission, token } from "../APICALL/APIcalls";
 import { useDispatch, useSelector } from "react-redux";
 import { SubmissionSliceAction } from "../store/slices/submission";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 export default function Final() {
 
@@ -15,10 +17,9 @@ export default function Final() {
   const [check5, setCheck5] = useState(false);
   const [error, setError] = useState();
   const [ loader, setLoader] = useState(false)
+  const [show, setShow] = useState(false)
 
   const submissionData = useSelector((state)=> state?.submission?.finalSubmission)
-
-  console.log(submissionData?.data?.message,"submissionData")
 
   const userId = token?.id;
 
@@ -60,7 +61,10 @@ export default function Final() {
         setError("Please accept all T&C");
     }
   };
-
+  
+  const showModal = () => {
+    setShow(!show)
+  }
   return (
     <>
       <div>
@@ -92,11 +96,32 @@ export default function Final() {
         </div>
 <div>{error}</div>
         <div className="button-container">
-          <button className="submit-button" onClick={() => handleSubmit()}>
-            Submit
+          <button className="submit-button" onClick={()=>showModal()}>
+           I have read and Accept all t&C.
           </button>
           <div className="tooltip">I have read and accept all T&C</div>
         </div>
+      </div>
+      <div>
+      {show && <div
+      className="modal show"
+      style={{ display: 'block', position: 'initial' }}
+    >
+      <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p>Modal body text goes here.</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={()=>showModal()}>Close</Button>
+          <Button variant="primary" onClick={() => handleSubmit()}>Save changes</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+    </div>}
       </div>
     </>
   );

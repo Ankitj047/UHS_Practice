@@ -63,8 +63,6 @@ export default function AgentDynamic() {
   const exportToExcel = async (ExcelExportData, fileName) => {
     let fileType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
     const fileExtension = ".xlsx";
-    debugger;
-console.log(ExcelExportData,"ExcelExportData")
     const ws = XLSX.utils.json_to_sheet(ExcelExportData);
     const wb = { Sheets: { 'data': ws}, SheetNames: ["data"] };
     console.log(wb, "wb");
